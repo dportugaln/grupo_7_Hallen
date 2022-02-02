@@ -1,6 +1,6 @@
 ## Tematica
 
-El producto que se ofrecera por nuestro sitio web sera indumentaria para toda la familia. Nuestro público serán deportistas, aficionados al deporte y público en general, de edades adolescentes a adultos mayores de ambos sexos" o algo así.
+El producto que se ofrecera por nuestro sitio web sera indumentaria para toda la familia. Nuestro público serán deportistas, aficionados al deporte y público en general, de edades adolescentes a adultos mayores de ambos sexos.
 
 ## Sitios de referencia
 
@@ -18,7 +18,7 @@ https://www.dexter.com.ar/
 
 ## Integrantes del grupo
 
-Bazan Guillermo Andres
-Daniel Portugal
+Guillermo Andres Bazan
+Daniel Portugal Nahum
 Natán Mendieta
-Cortez Marino Agustina
+Agustina Cortez Marino
