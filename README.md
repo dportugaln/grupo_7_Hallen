@@ -25,7 +25,3 @@ Daniel Portugal Nahum,
 Natán Mendieta,
 
 Agustina Cortez Marino.
-
-## Tablero de trabajo
-
-El grupo organizó su trabajo a través de tableros 
