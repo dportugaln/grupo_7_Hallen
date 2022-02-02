@@ -4,7 +4,7 @@ El producto que se ofrecera por nuestro sitio web sera indumentaria para toda la
 
 ## Sitios de referencia
 
-Se eligieron los siguientes sitios porque son lideres en el rubro y porque consederamos que las interfaces son amigables con el publico que los visita diariamente
+Se eligieron los siguientes sitios porque son líderes en el rubro y porque consideramos que las interfaces son amigables con el público que los visita diariamente.
 
 https://www.mercadolibre.com.ar/
 
@@ -18,7 +18,10 @@ https://www.dexter.com.ar/
 
 ## Integrantes del grupo
 
-Guillermo Andres Bazan
-Daniel Portugal Nahum
-Natán Mendieta
-Agustina Cortez Marino
+Guillermo Andres Bazan,
+
+Daniel Portugal Nahum,
+
+Natán Mendieta,
+
+Agustina Cortez Marino.
