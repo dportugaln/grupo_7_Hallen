@@ -25,3 +25,9 @@ Daniel Portugal Nahum,
 Natán Mendieta,
 
 Agustina Cortez Marino.
+
+## Tablero
+El grupo organizó su trabajo a través de tableros en un workspace de Trello:
+
+https://trello.com/g7dh
+
