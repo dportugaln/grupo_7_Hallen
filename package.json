@@ -1,0 +1,24 @@
+{
+  "name": "grupo_7_hallen",
+  "version": "1.0.0",
+  "description": "El producto que se ofrecerá por nuestro sitio web será indumentaria casual y deportiva. Nuestro público serán deportistas, aficionados al deporte y público en general, de edades adolescentes a adultos mayores de ambos sexos.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dportugaln/grupo_7_Hallen.git"
+  },
+  "author": "Grupo 7",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dportugaln/grupo_7_Hallen/issues"
+  },
+  "homepage": "https://github.com/dportugaln/grupo_7_Hallen#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
