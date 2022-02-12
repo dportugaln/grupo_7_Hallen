@@ -1,0 +1,362 @@
+/* FONTS FAMILIES */
+/* font-family: "Rationale", sans-serif;
+font-family: "Roboto", sans-serif;
+font-family: "Quicksand", sans-serif; */
+/* * {
+  box-sizing: border-box;
+} */
+
+body {
+  background: color #f5f1f1;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  font-family: "Quicksand", sans-serif;
+}
+
+body header div.top-header {
+  background-color: #1a265a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logo img {
+  display: flex;
+  padding: 0.5rem;
+  width: 15rem;
+}
+
+/* SEARCH */
+
+.search form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 50px;
+  font-size: 11px;
+  width: 30rem;
+}
+
+header .search .input {
+  flex-direction: row;
+  background-color: #f1f5f1;
+  outline: none;
+  color: #666;
+  padding: 0.5rem;
+  padding-left: 00.5rem;
+  width: 250px;
+  height: 32px;
+  border: none;
+  text-align: center;
+}
+
+header .search .submit {
+  flex-direction: row;
+  color: #666;
+  width: 15%;
+  height: 32px;
+  background-color: #f1f5f1;
+  border: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* LOG IN MENU */
+
+.dropdown {
+  margin-top: 50px;
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #fcb300;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* NAVBAR */
+
+body header div.navbar {
+  display: flex;
+  align-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  overflow: hidden;
+  background-color: #df1b3f;
+}
+
+body header div.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* MAIN */
+
+main div.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* SLIDER */
+
+.slideshow-container {
+  display: flex;
+  flex-direction: column;
+  /* max-width: 1000px; */
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.photoslide {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* PRODUCTS CARDS */
+
+.products {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+main div.card article {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin: 10%;
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+  flex-direction: column;
+  display: flex;
+}
+
+.product {
+  background-color: #fff;
+  margin: 10px 0px;
+}
+
+.product img {
+  max-width: 100%;
+}
+
+article div.main-article {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+  padding: 15px;
+}
+
+main article .tittle {
+  font-size: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0px;
+  text-align: center;
+  color: #666;
+}
+
+.photo-product {
+  width: 100%;
+}
+
+.precio {
+  font-size: 18px;
+  width: 30%;
+}
+
+main article h4.description {
+  font-size: 16px;
+  display: none;
+  font-weight: normal;
+  color: #666;
+  margin-top: 20px;
+}
+
+main article:hover h4.description {
+  font-size: 16px;
+  display: block;
+  font-weight: normal;
+  color: #666;
+  margin-top: 20px;
+}
+
+main article:hover {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  transition-duration: 1s, 5s;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  font-family: "Quicksand", sans-serif;
+  background-color: #1a265a;
+  color: #f1f5f1;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* CARD FOOTER */
+.group-members {
+  list-style-type: none;
+  text-align: center;
+}
+
+/* NEWSLETTER */
+form input[type="text"],
+input[type="submit"] {
+  width: 25%;
+  padding: 10px;
+  margin: 8px 0;
+  /* display: inline-block; */
+  border: 1px solid #f1f5f1;
+  box-sizing: border-box;
+  text-align: center;
+  align-content: center;
+}
+
+input[type="checkbox"] {
+  margin-top: 16px;
+}
+
+input[type="submit"] {
+  background-color: inherit;
+  color: #f1f5f1;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  /* opacity: 0.8; */
+  background-color: #fcb300;
+}
