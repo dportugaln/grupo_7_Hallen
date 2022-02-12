@@ -37,33 +37,34 @@ body header div.top-header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 50px;
+  margin-top: 50px;
+  padding: 2px;
   font-size: 11px;
-  width: 30rem;
+  width: 14rem;
+  height: 33px;
+  margin-left: 5px;
 }
 
 header .search .input {
-  flex-direction: row;
-  background-color: #f1f5f1;
+  background-color: #f5f5f5;
   outline: none;
   color: #666;
-  padding: 0.5rem;
-  padding-left: 00.5rem;
-  width: 250px;
-  height: 32px;
+  padding: 0.3rem;
+  width: 150%;
+  height: 33px;
   border: none;
   text-align: center;
 }
 
 header .search .submit {
-  flex-direction: row;
+  background-color: #f5f5f5;
+  outline: none;
   color: #666;
-  width: 15%;
-  height: 32px;
-  background-color: #f1f5f1;
+  padding: 0.3rem;
+  width: 20%;
+  height: 33px;
   border: none;
-  margin: 0;
-  padding: 0.5rem;
+  text-align: center;
 }
 
 /* LOG IN MENU */
@@ -142,6 +143,7 @@ body header div.navbar a {
 main div.main-container {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 /* SLIDER */
@@ -313,6 +315,36 @@ main article:hover h4.description {
 main article:hover {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
   transition-duration: 1s, 5s;
+}
+
+/* CHAT */
+.chat {
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  top: 75%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.chat a {
+  background-color: #f5f5f5;
+  outline: none;
+  color: #df1b3f;
+  padding: 0.3rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  text-align: center;
+}
+
+.chat a:hover {
+  background-color: #1a265a;
+}
+
+.chat a i {
+  font-size: 40px;
 }
 
 /* FOOTER */

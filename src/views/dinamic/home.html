@@ -32,33 +32,39 @@
     />
 
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="/public/css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ICONS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="container-header">
       <div class="top-header">
         <div class="logo">
-          <img src="\public\images\Logo.png" alt="logo-hallen" />
+          <img src="images\Logo.png" alt="logo-hallen" />
         </div>
         <div class="search">
           <form action="#" method="get">
-            <div class="input">Buscar productos</div>
-            <div class="submit"></div>
+            <div class="input">Buscar productos...</div>
+            <div class="submit"><i class="fa fa-search"></i></div>
           </form>
         </div>
         <div class="dropdown">
           <button class="dropbtn">Ingresar</button>
           <div class="dropdown-content">
-            <a href="../static/login.html">Log In</a>
-            <a href="../static/login.html">Sing in</a>
+            <a href="/login">Log In</a>
+            <a href="/login">Sing in</a>
           </div>
         </div>
       </div>
       <div class="navbar">
         <a href="/">HOME</a>
-        <a href="/src/views/static/aboutus.html">ABOUT US</a>
-        <a href="/src/views/dinamic/product.html">PRODUCTS</a>
-        <a href="/src/views/static/contact.html">CONTACT</a>
+        <a href="/aboutus">ABOUT US</a>
+        <a href="/products">PRODUCTS</a>
+        <a href="/contact">CONTACT</a>
       </div>
     </header>
     <main>
@@ -67,19 +73,19 @@
           <div>
             <div class="photoslide fade">
               <div class="numbertext">1 / 3</div>
-              <img src="/public/images/Logo.png" style="width: 100%" />
+              <img src="images/Logo.png" style="width: 100%" />
               <div class="text">Product 1</div>
             </div>
 
             <div class="photoslide fade">
               <div class="numbertext">2 / 3</div>
-              <img src="/public/images/Logo.png" style="width: 100%" />
+              <img src="images/Logo.png" style="width: 100%" />
               <div class="text">Product 2</div>
             </div>
 
             <div class="photoslide fade">
               <div class="numbertext">3 / 3</div>
-              <img src="/public/images/Logo.png" style="width: 100%" />
+              <img src="images/Logo.png" style="width: 100%" />
               <div class="text">Product 3</div>
             </div>
           </div>
@@ -153,7 +159,7 @@
               <img
                 class="photo-product"
                 width="300"
-                src="/public/images/Logo.png"
+                src="images/Logo.png"
                 alt="product1"
               />
               <div class="main-article">
@@ -168,7 +174,7 @@
               <img
                 class="photo-product"
                 width="300"
-                src="/public/images/Logo.png"
+                src="images/Logo.png"
                 alt="product1"
               />
               <div class="main-article">
@@ -183,7 +189,7 @@
               <img
                 class="photo-product"
                 width="300"
-                src="/public/images/Logo.png"
+                src="images/Logo.png"
                 alt="product1"
               />
               <div class="main-article">
@@ -192,6 +198,12 @@
               </div>
             </article>
           </div>
+        </div>
+
+        <div class="chat">
+          <a href="/contact">
+            <i class="far fa-comment-dots"></i>
+          </a>
         </div>
       </div>
     </main>
