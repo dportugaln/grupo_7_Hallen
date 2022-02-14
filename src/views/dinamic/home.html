@@ -101,7 +101,7 @@
             <span class="dot" onclick="currentSlide(3)"></span>
           </div>
           <script>
-            var slideIndex = 1;
+            let slideIndex = 1;
             showSlides(slideIndex);
 
             // Next/previous controls
@@ -115,9 +115,9 @@
             }
 
             function showSlides(n) {
-              var i;
-              var slides = document.getElementsByClassName("photoslide");
-              var dots = document.getElementsByClassName("dot");
+              let i;
+              let slides = document.getElementsByClassName("photoslide");
+              let dots = document.getElementsByClassName("dot");
               if (n > slides.length) {
                 slideIndex = 1;
               }
@@ -134,12 +134,12 @@
               dots[slideIndex - 1].className += " active";
             }
 
-            var slideIndex = 0;
+            let slideIndex = 0;
             showSlidesAutomatic();
 
             function showSlidesAutomatic() {
-              var i;
-              var slides = document.getElementsByClassName("photoslide");
+              let i;
+              let slides = document.getElementsByClassName("photoslide");
               for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
               }
