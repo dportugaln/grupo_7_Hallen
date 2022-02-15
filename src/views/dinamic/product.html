@@ -53,11 +53,11 @@
           </form>
         </div>
         <div class="dropdown">
-          <a href="/login"></a><button class="dropbtn">Ingresar</button></a>
-          <!-- <div class="dropdown-content">
+          <button class="dropbtn">Ingresar</button>
+          <div class="dropdown-content">
             <a href="/login">Log In</a>
             <a href="/login">Sing in</a>
-          </div> -->
+          </div>
         </div>
       </div>
       <div class="navbar">
@@ -67,7 +67,68 @@
         <a href="/contact">CONTACT</a>
       </div>
     </header>
-    <main></main>
+    <main class="product-main">
+      <section class="primera-info">
+        <!-- <div class="img"> -->
+        <img
+          src="images/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+          alt="imagen producto"
+        />
+        <!-- </div> -->
+        <div class="info">
+          <h4 class="titlle">Producto 1</h4>
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <form method="get">
+            <label for="colors">Seleccione un color</label>
+            <select name="colors" id="colors">
+              <option value="#ff0000">Rojo</option>
+              <option value="#ff0000">Rojo</option>
+              <option value="#ff0000">Rojo</option>
+              <option value="#ff0000">Rojo</option>
+              <option value="#ff0000">Rojo</option>
+            </select>
+
+            <label for="colors">Seleccione un talle</label>
+            <select name="colors" id="colors">
+              <option value="#ff0000">Grande</option>
+              <option value="#ff0000">muy grande</option>
+              <option value="#ff0000">chiquito</option>
+              <option value="#ff0000">d</option>
+              <option value="#ff0000">Rojo</option>
+            </select>
+          </form>
+          <div class="buttons">
+            <button>comprar</button>
+            <button>agregar al carrito</button>
+          </div>
+        </div>
+      </section>
+      <section class="description-product">
+        <h3>Descripcion</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+          voluptatem iusto a voluptates sint veritatis reprehenderit deserunt
+          soluta, quo sed culpa laudantium officia sapiente delectus ab quisquam
+          harum cum dolorum? Lorem ipsum dolor sit, amet consectetur adipisicing
+          elit. Totam non ad, animi accusamus commodi, laborum fugit mollitia
+          quos adipisci aliquid, vitae similique porro nihil voluptatibus
+          corporis placeat! Accusamus, perspiciatis est. Lorem, ipsum dolor sit
+          amet consectetur adipisicing elit. Dolor optio fugiat a facere, magni
+          impedit et provident exercitationem eveniet dolorem ipsam voluptatum
+          quia laboriosam explicabo vero velit esse fuga odio. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Est placeat consectetur
+          sapiente. Vero quos, officiis sit eveniet molestiae dolorum eaque iure
+          necessitatibus eius, voluptas aliquid eligendi delectus blanditiis
+          omnis expedita?
+        </p>
+      </section>
+    </main>
     <footer>
       <div class="card-footer">
         <ul class="group-members">
@@ -85,8 +146,13 @@
         </div>
 
         <div class="newsletter-container">
-          <input type="text" placeholder="Name" name="name" required />
-          <input type="text" placeholder="Email address" name="mail" required />
+          <input type="text" placeholder="Nombre" name="name" required />
+          <input
+            type="text"
+            placeholder="Dirección de correo"
+            name="mail"
+            required
+          />
           <label>
             <input type="checkbox" checked="checked" name="subscribe" /> Daily
             Newsletter

@@ -7,7 +7,11 @@ font-family: "Quicksand", sans-serif; */
 } */
 
 body {
-  background: color #f5f1f1;
+  background-color: #f5f1f1;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
   font-family: "Roboto", sans-serif;
 }
 
@@ -391,4 +395,52 @@ input[type="submit"] {
 input[type="submit"]:hover {
   /* opacity: 0.8; */
   background-color: #fcb300;
+}
+
+/* PRODUCT DETAIL */
+.product-main {
+  display: flex;
+  flex-direction: column;
+  margin: 10em;
+}
+
+.product-main section.primera-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-main section img {
+  width: 30em;
+  margin-right: 10em;
+}
+
+.product-main section div.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-main section div.info div.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+div.buttons button {
+  width: 50%;
+  margin: 0.5em;
+
+  background-color: #df1b3f;
+  outline: none;
+  color: #f5f1f5;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+}
+
+div.buttons button:hover {
+  background-color: #fcb300;
+}
+
+.checked {
+  color: orange;
 }

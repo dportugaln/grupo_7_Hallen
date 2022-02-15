@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "src/views/dinamic/home.html"));
 });
 
-app.get("/products", (req, res) => {
-  res.sendFile(path.join(__dirname, "src/views/dinamic/products.html"));
+app.get("/categories", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/views/dinamic/categories.html"));
 });
 
 app.get("/contact", (req, res) => {
@@ -27,4 +27,8 @@ app.get("/login", (req, res) => {
 
 app.get("/aboutus", (req, res) => {
   res.sendFile(path.join(__dirname, "src/views/static/aboutus.html"));
+});
+
+app.get("/product", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/views/dinamic/product.html"));
 });
