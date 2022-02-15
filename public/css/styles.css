@@ -401,7 +401,7 @@ input[type="submit"]:hover {
 .product-main {
   display: flex;
   flex-direction: column;
-  margin: 10em;
+  margin: 3em 10em;
 }
 
 .product-main section.primera-info {
@@ -417,6 +417,39 @@ input[type="submit"]:hover {
 .product-main section div.info {
   display: flex;
   flex-direction: column;
+  margin-top: 10em;
+  text-align: center;
+}
+
+.product-main section div.info h4 {
+  font-size: 32px;
+  margin: 5px;
+}
+
+.product-main section div.info .stars {
+  margin: 5px;
+  font-size: 25px;
+}
+.checked {
+  color: orange;
+}
+
+.product-main section div.info form {
+  font-size: 20px;
+  margin: 8px;
+}
+
+.product-main section div.info form label {
+  margin: 15px;
+}
+
+.product-main section div.info form select {
+  border: none;
+  margin: 10px;
+}
+
+.product-main section div.info form select:hover {
+  background-color: #fcb50050;
 }
 
 .product-main section div.info div.buttons {
@@ -427,10 +460,11 @@ input[type="submit"]:hover {
 div.buttons button {
   width: 50%;
   margin: 0.5em;
-
+  height: 40px;
   background-color: #df1b3f;
   outline: none;
   color: #f5f1f5;
+  font-size: 15px;
   padding: 0.3rem;
   border: none;
   border-radius: 15px;
@@ -441,6 +475,6 @@ div.buttons button:hover {
   background-color: #fcb300;
 }
 
-.checked {
-  color: orange;
+.product-main section.description-product p {
+  line-height: 25px;
 }
