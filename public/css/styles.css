@@ -371,15 +371,18 @@ footer {
 
 /* NEWSLETTER */
 form input[type="text"],
-input[type="submit"] {
+input[type="submit"],
+form input[type="password"],
+.login-button button.submit {
   width: 25%;
   padding: 10px;
   margin: 8px 0;
   /* display: inline-block; */
-  border: 1px solid #f1f5f1;
+  border: 1px solid #868686;
   box-sizing: border-box;
   text-align: center;
   align-content: center;
+  border-radius: 5em;
 }
 
 input[type="checkbox"] {
@@ -443,4 +446,17 @@ div.buttons button:hover {
 
 .checked {
   color: orange;
+}
+
+/* LOGIN PAGE */
+.login{
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.login-button button.submit:hover{
+  background-color: #df1b3f;
+  color: #FFF;
+  /* transition: background-color, 0.5s, color, 0.5s; */
 }
