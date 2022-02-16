@@ -5,6 +5,9 @@ font-family: "Quicksand", sans-serif; */
 /* * {
   box-sizing: border-box;
 } */
+*{
+  margin: 0;
+}
 
 body {
   background-color: #f5f1f1;
@@ -483,11 +486,32 @@ div.buttons button:hover {
 }
 
 /* LOGIN PAGE */
+.forms{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .login{
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.forms input#email{
+  box-sizing: content-box;
+  border-radius: 5em;
+  padding: 10px 15em 10px;
+  margin: 8px 0;
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  align-content: center;
+  border-radius: 5em;
+}
+
+
 
 .login-button button.submit:hover{
   background-color: #df1b3f;
