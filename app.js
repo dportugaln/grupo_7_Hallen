@@ -32,3 +32,7 @@ app.get("/aboutus", (req, res) => {
 app.get("/product", (req, res) => {
   res.sendFile(path.join(__dirname, "src/views/dinamic/product.html"));
 });
+
+app.get("/carrito", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/views/dinamic/carrito.html"));
+});

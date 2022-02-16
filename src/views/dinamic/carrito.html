@@ -53,11 +53,11 @@
           </form>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Ingresar</button>
-          <div class="dropdown-content">
+          <a href="/login"></a><button class="dropbtn">Ingresar</button></a>
+          <!-- <div class="dropdown-content">
             <a href="/login">Log In</a>
             <a href="/login">Sing in</a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="navbar">
@@ -67,6 +67,17 @@
         <a href="/contact">CONTACT</a>
       </div>
     </header>
+
+    <main>
+        <div class="container-carrito">
+            <article class="card-compra">
+                <img src="images/remera.jpg" alt="compra1">
+                <p class="precio">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <p class="description">Precio</p>
+            </article>                
+        </div>
+    </main>
+
     <footer>
       <div class="card-footer">
         <ul class="group-members">
@@ -84,8 +95,8 @@
         </div>
 
         <div class="newsletter-container">
-          <input type="text" placeholder="Nombre" name="name" required />
-          <input type="text" placeholder="Dirección de correo" name="mail" required />
+          <input type="text" placeholder="Name" name="name" required />
+          <input type="text" placeholder="Email address" name="mail" required />
           <label>
             <input type="checkbox" checked="checked" name="subscribe" /> Daily
             Newsletter
