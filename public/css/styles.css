@@ -511,10 +511,50 @@ div.buttons button:hover {
   border-radius: 5em;
 }
 
-
-
 .login-button button.submit:hover{
   background-color: #df1b3f;
   color: #FFF;
   /* transition: background-color, 0.5s, color, 0.5s; */
+}
+
+/* Carrito */
+
+main.carrito{
+  margin: 3em 10em;
+  width: 80%;
+  border: 1px solid #868686;
+  border-radius: 3px;
+}
+
+div.container-carrito{
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+div.container-carrito div.card-compra{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+div.container-carrito div.card-compra:not(:first-child){
+  border-top: 1px solid #868686;
+  
+}
+div.container-carrito div.card-compra div.card-description{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div.container-carrito div.card-compra  img{
+  width: 6em;
+}
+
+div.container-carrito div.card-compra div.card-action{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
