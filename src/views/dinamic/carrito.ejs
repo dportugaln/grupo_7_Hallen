@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HALLEN INDUMENTARIA</title>
+
+    <!-- FUENTES -->
+    <!-- RATIONALE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rationale&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- QUICKSAND -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ROBOTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ICONS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <%-include('../partials/header') %>
+
+    <main class="carrito">
+      <div class="container-carrito">
+        <div class="card-compra">
+          <div class="card-description">
+            <img src="images/remera.jpg" alt="compra1" />
+            <p class="precio">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            </p>
+            <p class="description">Precio</p>
+          </div>
+          <div class="card-action">
+            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-plus"></i>
+            cantidad
+            <i class="fa-solid fa-minus"></i>
+          </div>
+        </div>
+        <div class="card-compra">
+          <div class="card-description">
+            <img src="images/remera.jpg" alt="compra1" />
+            <p class="precio">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            </p>
+            <p class="description">Precio</p>
+          </div>
+          <div class="card-action">
+            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-plus"></i>
+            cantidad
+            <i class="fa-solid fa-minus"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%-include('../partials/footer') %>
+  </body>
+</html>

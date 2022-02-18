@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HALLEN INDUMENTARIA</title>
+
+    <!-- FUENTES -->
+    <!-- RATIONALE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rationale&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- QUICKSAND -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ROBOTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ICONS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <%-include('../partials/header') %>
+
+    <main class="login-register">
+      <div class="forms">
+        <!-- Log in -->
+        <div class="login">
+          <h2>CLIENTES REGISTRADOS</h2>
+          <form action="" method="post">
+            <div class="email">
+              <label for="email">Correo electrónico</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Correo electrónico"
+                minlength="5"
+                required
+              />
+            </div>
+            <div class="password">
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+                minlength="8"
+                required
+              />
+            </div>
+            <div class="login-button">
+              <button class="submit" type="submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Registro -->
+
+        <div class="register">
+          <h2>NUEVOS CLIENTES</h2>
+          <form action="" method="post">
+            <div class="email">
+              <label for="email">Correo electrónico</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Correo electrónico"
+                minlength="5"
+                required
+              />
+            </div>
+            <div class="password">
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+                minlength="8"
+                required
+              />
+            </div>
+            <div class="first_name">
+              <label for="first_name">Nombre</label>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div class="last_name">
+              <label for="last_name">Apellido</label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                placeholder="Apellido"
+                required
+              />
+            </div>
+            <div class="id_num">
+              <label for="id_num">DNI</label>
+              <input
+                type="number"
+                name="id_num"
+                id="id_num"
+                placeholder="Número de DNI"
+                required
+              />
+            </div>
+            <div class="birth_date">
+              <label for="birth_date">Fecha de nacimiento</label>
+              <input type="date" name="birth_date" id="birth_date" required />
+            </div>
+            <div class="sex">
+              <label for="sex">Sexo</label>
+              <select name="sex" required>
+                <option value="female">Seleccionar</option>
+                <option value="female">Femenino</option>
+                <option value="male">Masculino</option>
+              </select>
+            </div>
+            <div>
+              <button class="submit" type="submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%-include('../partials/footer') %>
+  </body>
+</html>
