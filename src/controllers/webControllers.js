@@ -22,4 +22,7 @@ module.exports = {
   login: (req, res) => {
     res.render(path.join(__dirname, "../views/static/login"));
   },
+  stock: (req, res) => {
+    res.render(path.join(__dirname, "../views/static/productForm"))
+  },
 };

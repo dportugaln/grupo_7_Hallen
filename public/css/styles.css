@@ -506,7 +506,7 @@ div.buttons button:hover {
 }
 
 .forms input,
-select {
+.forms select {
   width: 50%;
   padding: 10px;
   margin: 8px 0;
