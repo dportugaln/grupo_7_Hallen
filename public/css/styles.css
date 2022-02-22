@@ -5,9 +5,13 @@ font-family: "Quicksand", sans-serif; */
 /* * {
   box-sizing: border-box;
 } */
+
+/* ------- 0. RESET ------- */
 * {
   margin: 0;
 }
+
+/* ------- 1. LAYOUT ------- */
 
 h2 {
   font-family: "Quicksand", sans-serif;
@@ -42,19 +46,11 @@ body header div.top-header {
   width: 15rem;
 }
 
+
+
 /* SEARCH */
 
-.search form {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 50px;
-  padding: 2px;
-  font-size: 11px;
-  width: 14rem;
-  height: 33px;
-  margin-left: 5px;
-}
+
 
 header .search .input {
   background-color: #f5f5f5;
@@ -532,65 +528,12 @@ div.sex {
   justify-content: space-between;
 }
 
-/* .forms input#email{
-  box-sizing: content-box;
-  border-radius: 5em;
-  padding: 10px 15em 10px;
-  margin: 8px 0;
-  border: 1px solid #868686;
-  box-sizing: content-box;
-  align-content: center;
-  border-radius: 5em;
-} */
 
-/* .forms input#password{
-  box-sizing: content-box;
-  border-radius: 5em;
-  padding: 10px 15em 10px;
-  margin: 8px 0 0 41px;
-  border: 1px solid #868686;
-  align-content: center;
-  border-radius: 5em;
-}
- */
-/* .forms input#first_name{
-  box-sizing: content-box;
-  border-radius: 5em;
-  padding: 10px 15em 10px;
-  margin: 8px 0 0 66px;
-  border: 1px solid #868686;
-  align-content: center;
-  border-radius: 5em;
-}
- */
-/* .forms input#last_name{
-  box-sizing: content-box;
-  border-radius: 5em;
-  padding: 10px 15em 10px;
-  margin: 8px 0 0 65px;
-  border: 1px solid #868686;
-  align-content: center;
-  border-radius: 5em;
-}
- */
-/* .forms input#id_num {
-  
-    box-sizing: content-box;
-    border-radius: 5em;
-    padding: 10px 15em 10px;
-    margin: 8px 0 0 65px;
-    border: 1px solid #868686;
-    align-content: center;
-    border-radius: 5em;
-  
-}
- */
 
 .forms button {
   width: 50%;
   padding: 10px;
   margin: 8px 0;
-  /* display: inline-block; */
   border: 1px solid #868686;
   box-sizing: border-box;
   text-align: center;
@@ -601,7 +544,7 @@ div.sex {
 .forms button.submit:hover {
   background-color: #df1b3f;
   color: #fff;
-  /* transition: background-color, 0.5s, color, 0.5s; */
+  transition: background-color, 0.5s, color, 0.5s;
 }
 
 /* Carrito */
@@ -643,4 +586,42 @@ div.container-carrito div.card-compra div.card-action {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+/* Formulario de productos */
+div.product-form {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+
+.product-form input,
+.product-form select {
+  width: 50%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  text-align: center;
+  align-content: center;
+  border-radius: 5em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+div.name,
+div.description,
+div.image,
+div.category {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+button.submit:hover {
+  background-color: #df1b3f;
+  color: #fff;
+  transition: background-color, 0.5s, color, 0.5s;
 }
