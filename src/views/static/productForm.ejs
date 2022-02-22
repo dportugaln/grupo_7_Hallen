@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HALLEN INDUMENTARIA</title>
+
+  <!-- FUENTES -->
+  <!-- RATIONALE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet" />
+
+  <!-- QUICKSAND -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+
+  <!-- ROBOTO -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- ICONS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <%- include('../partials/header') %>
+
+    <main class="add-product">
+      <div class="product-form">
+        <form action="" method="POST">
+          <div class="name">
+            <label for="name">Producto</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+          <div class="description">
+            <label for="description">Descripción</label>
+            <input type="text" name="description" id="description" required>
+          </div>
+          <div class="image">
+            <label for="image">Imagen del producto</label>
+            <input type="file" name="image" id="image">
+          </div>
+          <div class="category">
+            <label for="category">Categoría</label>
+            <select name="category" required>
+              <option value="empty">Seleccionar</option>
+              <option value="shoes">Calzados</option>
+              <option value="shirts">Remeras</option>
+              <option value="jeans">Jeans</option>
+            </select>
+          </div>
+          <div>
+            <button class="submit" type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
