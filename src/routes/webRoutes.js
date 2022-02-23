@@ -10,6 +10,7 @@ router.get("/categories", webControllers.categories);
 router.get("/product", webControllers.product);
 router.get("/contact", webControllers.contact);
 router.get("/login", webControllers.login);
-router.get("/productform", webControllers.stock);
+router.get("/productcreate", webControllers.stock);
+router.get("/productedit", webControllers.edit);
 
 module.exports = router;

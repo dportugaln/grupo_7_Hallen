@@ -23,6 +23,9 @@ module.exports = {
     res.render(path.join(__dirname, "../views/static/login"));
   },
   stock: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/productForm"))
+    res.render(path.join(__dirname, "../views/static/productCreate"));
+  },
+  edit: (req, res) => {
+    res.render(path.join(__dirname, "../views/static/productEdit"));
   },
 };
