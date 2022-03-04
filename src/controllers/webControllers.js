@@ -10,9 +10,7 @@ module.exports = {
   categories: (req, res) => {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
-  product: (req, res) => {
-    res.render(path.join(__dirname, "../views/dinamic/product"));
-  },
+
   aboutus: (req, res) => {
     res.render(path.join(__dirname, "../views/static/aboutus"));
   },
@@ -21,11 +19,5 @@ module.exports = {
   },
   login: (req, res) => {
     res.render(path.join(__dirname, "../views/static/login"));
-  },
-  stock: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/productCreate"));
-  },
-  edit: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/productEdit"));
   },
 };

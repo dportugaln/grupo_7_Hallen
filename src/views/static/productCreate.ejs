@@ -5,7 +5,7 @@
 
     <main class="add-product">
       <div class="product-form">
-        <form action="" method="POST">
+        <form action="/products" method="POST" enctype="multipart/form-data">
           <div class="name">
             <label for="name">Producto</label>
             <input type="text" name="name" id="name" required>
@@ -16,7 +16,7 @@
           </div>
           <div class="image">
             <label for="image">Imagen del producto</label>
-            <input type="file" name="image" id="image">
+            <input type="file" name="image" id="image" placeholder="Subir foto">
           </div>
           <div class="category">
             <label for="category">Categoría</label>
