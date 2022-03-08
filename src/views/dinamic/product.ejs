@@ -5,11 +5,11 @@
     <main class="product-main">
       <section class="primera-info">
         <!-- <div class="img"> -->
-        <img src="images/remera.jpg" alt="imagen producto" />
+        <img src="<%=product.image%>" alt="<%=product.image%>" />
         <!-- </div> -->
         <div class="info">
-          <h4 class="titlle">Producto 1</h4>
-          <h4 class="titlle">$0000</h4>
+          <h4 class="titlle"><%=product.name%></h4>
+          <h4 class="titlle"><%=product.price%></h4>
 
           <div class="stars">
             <span class="fa fa-star checked"></span>
@@ -22,7 +22,7 @@
             <div class="form1">
               <label for="colors">Seleccione un color</label>
               <select name="colors" id="colors">
-                <option value="#ff0000">Rojo</option>
+                <option value="#ff0000"><%=product.color%></option>
                 <option value="black">Negro</option>
                 <option value="white">Blanco</option>
                 <option value="grey">Gris</option>
@@ -31,7 +31,7 @@
             <div class="form2">
               <label for="sizes">Seleccione un talle</label>
               <select name="sizes" id="sizes">
-                <option value="XL">XL</option>
+                <option value="XL"><%=product.size%></option>
                 <option value="L">L</option>
                 <option value="M">M</option>
                 <option value="S">S</option>
@@ -42,26 +42,14 @@
           <div class="buttons">
             <button>Comprar</button>
             <a href="/carrito"><button>Agregar al carrito</button></a>
+            <a href="/products:id/edit"><button>Editar</button></a>
           </div>
         </div>
       </section>
       <section class="description-product">
         <h3>Descripcion</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-          voluptatem iusto a voluptates sint veritatis reprehenderit deserunt
-          soluta, quo sed culpa laudantium officia sapiente delectus ab quisquam
-          harum cum dolorum? Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Totam non ad, animi accusamus commodi, laborum fugit mollitia
-          quos adipisci aliquid, vitae similique porro nihil voluptatibus
-          corporis placeat! Accusamus, perspiciatis est. Lorem, ipsum dolor sit
-          amet consectetur adipisicing elit. Dolor optio fugiat a facere, magni
-          impedit et provident exercitationem eveniet dolorem ipsam voluptatum
-          quia laboriosam explicabo vero velit esse fuga odio. Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Est placeat consectetur
-          sapiente. Vero quos, officiis sit eveniet molestiae dolorum eaque iure
-          necessitatibus eius, voluptas aliquid eligendi delectus blanditiis
-          omnis expedita?
+          <%=product.description%>
         </p>
       </section>
     </main>

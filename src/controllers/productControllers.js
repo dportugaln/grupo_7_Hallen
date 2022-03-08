@@ -5,8 +5,8 @@ const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 module.exports = {
-  product: (req, res) => {
-    res.render(path.join(__dirname, "../views/dinamic/product"));
+  categories: (req, res) => {
+    res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
 
   create: (req, res) => {
@@ -33,7 +33,45 @@ module.exports = {
       res.redirect("/products");
     }
   },
+  detail: (req, res) => {
+    let id = req.params.id;
+    let product = products.find((product) => product.id == id);
+    res.render(path.join(__dirname, "../views/dinamic/product"), {
+      product,
+    });
+  },
   edit: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/productEdit"));
+    let id = req.params.id;
+    let productToEdit = products.find((product) => product.id == id);
+    res.render("../views/static/productEdit", { productToEdit });
+  },
+  update: (req, res) => {
+    let id = req.params.id;
+    let productToEdit = products.find((product) => product.id == id);
+
+    productToEdit = {
+      id: productToEdit.id,
+      ...req.body,
+      image: productToEdit.image,
+    };
+
+    let newProducts = products.map((product) => {
+      if (product.id == productToEdit.id) {
+        return (product = { ...productToEdit });
+      }
+      return product;
+    });
+
+    fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
+    res.redirect("/");
+  },
+  destroy: (req, res) => {
+    let id = req.params.id;
+    let finalProducts = products.filter((product) => product.id != id);
+    fs.writeFileSync(
+      productsFilePath,
+      JSON.stringify(finalProducts, null, " ")
+    );
+    res.redirect("/");
   },
 };
