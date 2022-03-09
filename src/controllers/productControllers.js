@@ -43,7 +43,9 @@ module.exports = {
   edit: (req, res) => {
     let id = req.params.id;
     let productToEdit = products.find((product) => product.id == id);
-    res.render("../views/static/productEdit", { productToEdit });
+    res.render(path.join(__dirname, "../views/static/productEdit"), {
+      productToEdit,
+    });
   },
   update: (req, res) => {
     let id = req.params.id;

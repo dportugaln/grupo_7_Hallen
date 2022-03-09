@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dportugaln/grupo_7_Hallen#readme",
   "dependencies": {
     "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.1",
     "express": "^4.17.2",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15"

@@ -22,12 +22,12 @@ router.get("/", productControllers.categories);
 router.get("/create", productControllers.create);
 router.post("/", uploadFile.single("image"), productControllers.store);
 
-// /*get one product*/
-router.get("/:id", productControllers.detail);
-
 /*edit one product*/
 router.get("/edit/:id", productControllers.edit);
 router.put("/edit/:id", productControllers.update);
+
+// /*get one product*/
+router.get("/:id", productControllers.detail);
 
 /* delete one product*/
 router.delete("/delete/:id", productControllers.destroy);
