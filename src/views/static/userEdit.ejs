@@ -1,0 +1,47 @@
+<%-include('../partials/head') %>
+<body>
+  <!-- HEADER -->
+  <%- include('../partials/header') %>
+
+    <main class="user-edit">
+      <div class="user-form">
+        <form action="/profile" method="PUT" enctype="multipart/form-data">
+          <div class="profile-name">
+            <label for="profile-Name">Nombre/s</label>
+            <input type="text" name="profile-name" id="profile-name" required>
+          </div>
+          <div class="profile-lastName">
+            <label for="profile-lastName">Apellido/s</label>
+            <input type="text" name="profile-lastName" id="profile-lastName" required>
+          </div>
+          <div class="user-pic">
+            <label for="user-pic">Foto de perfil</label>
+            <input type="file" name="user-pic" id="user-pic" placeholder="Subir foto">
+          </div>
+          <div class="user-role">
+            <label for="user-role">Categoría</label>
+            <select name="user-role" required>
+              <option value="admin">Administrador</option>
+              <option value="user">Usuario</option>
+            </select>
+          </div>
+          <div class="user-sex">
+            <label for="user-sex">Sexo</label>
+            <select name="user-sex" required>
+              <option value="empty">Seleccionar</option>
+              <option value="female">Femenino</option>
+              <option value="male">Masculino</option>
+            </select>
+          </div>
+          <div>
+            <button class="submit" type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
