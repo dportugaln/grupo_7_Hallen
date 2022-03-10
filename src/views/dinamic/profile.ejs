@@ -1,0 +1,33 @@
+<%-include('.. /partials/head') %>
+
+  <body>
+    <!-- HEADER -->
+    <%-include('.. /partials/header') %>
+      <main class="profile-main">
+        <section class="profile-info">
+          <!-- <div class="img"> -->
+          <img src="<%=user.image%>" alt="<%=user.image%>" />
+          <!-- </div> -->
+          <div class="profile-info">
+            <h4 class="profile-name">
+              <%=user.firstName%>
+            </h4>
+            <h4 class="profile-lastName">
+              <%=user.lastName%>
+            </h4>
+            <h4 class="profile-category">
+              <%=user.category%>
+            </h4>
+            <h4 class="profile-sex">
+              <%=user.sex%>
+            </h4>
+            <a href="/profile/edit/<%=user.id%>"><button>Editar</button></a>
+          </div>
+
+
+      </main>
+      <!-- FOOTER -->
+      <%-include('.. /partials/footer') %>
+  </body>
+
+  </html>
