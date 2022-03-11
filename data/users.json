@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "first_name": "Elsworth",
+    "last_name": "Meddows",
+    "email": "emeddows0@arizona.edu",
+    "password": "FH3nxb",
+    "category": "user",
+    "image": "user_1.jpg"
+  },
+  {
+    "id": 2,
+    "first_name": "Gav",
+    "last_name": "Hunnywell",
+    "email": "ghunnywell1@epa.gov",
+    "password": "TDojy8",
+    "category": "user",
+    "image": "user_2.jpg"
+  },
+  {
+    "id": 3,
+    "first_name": "Alberta",
+    "last_name": "Vanner",
+    "email": "avanner2@wunderground.com",
+    "password": "5hmCJO9JOP",
+    "category": "user",
+    "image": "user_3.jpg"
+  },
+  {
+    "id": 4,
+    "first_name": "Kristine",
+    "last_name": "Veronique",
+    "email": "kveronique3@skyrock.com",
+    "password": "qJrbcq",
+    "category": "user",
+    "image": "user_4.jpg"
+  },
+  {
+    "id": 5,
+    "first_name": "Lorie",
+    "last_name": "Cattenach",
+    "email": "lcattenach4@hc360.com",
+    "password": "DfqtMSZ",
+    "category": "user",
+    "image": "user_5.jpg"
+  },
+  {
+    "id": 6,
+    "first_name": "Carlo",
+    "last_name": "Kopmann",
+    "email": "ckopmann5@disqus.com",
+    "password": "KBZgmErivslV",
+    "category": "user",
+    "image": "user_6.jpg"
+  },
+  {
+    "id": 7,
+    "first_name": "Winonah",
+    "last_name": "Rosenbarg",
+    "email": "wrosenbarg6@sun.com",
+    "password": "P3aKKawua",
+    "category": "user",
+    "image": "user_7.jpg"
+  },
+  {
+    "id": 8,
+    "first_name": "Celestia",
+    "last_name": "Melross",
+    "email": "cmelross7@mapquest.com",
+    "password": "fVjidL6QSb4",
+    "category": "user",
+    "image": "user_8.jpg"
+  },
+  {
+    "id": 9,
+    "first_name": "Bridie",
+    "last_name": "Alliberton",
+    "email": "balliberton8@yolasite.com",
+    "password": "ihskylcfc",
+    "category": "user",
+    "image": "user_9.jpg"
+  },
+  {
+    "id": 10,
+    "first_name": "Adela",
+    "last_name": "Brecknock",
+    "email": "abrecknock9@techcrunch.com",
+    "password": "xFTsnVWz",
+    "category": "user",
+    "image": "user_10.jpg"
+  },
+  {
+    "id": 11,
+    "first_name": "Dorena",
+    "last_name": "Vaskov",
+    "email": "dvaskova@friendfeed.com",
+    "password": "OsNVr9FcQt4E",
+    "category": "user",
+    "image": "user_11.jpg"
+  },
+  {
+    "id": 12,
+    "first_name": "Erika",
+    "last_name": "Suston",
+    "email": "esustonb@yolasite.com",
+    "password": "NoBgXWb1Rf",
+    "category": "user",
+    "image": "user_12.jpg"
+  },
+  {
+    "id": 13,
+    "first_name": "Chelsie",
+    "last_name": "Swire",
+    "email": "cswirec@cornell.edu",
+    "password": "z1GjTi3",
+    "category": "user",
+    "image": "user_13.jpg"
+  },
+  {
+    "id": 14,
+    "first_name": "Celestine",
+    "last_name": "Turneux",
+    "email": "cturneuxd@artisteer.com",
+    "password": "6TohSFc7PVvE",
+    "category": "user",
+    "image": "user_14.jpg"
+  },
+  {
+    "id": 15,
+    "first_name": "Mickie",
+    "last_name": "Kleinstub",
+    "email": "mkleinstube@google.it",
+    "password": "PDLVGcYat8H",
+    "category": "user",
+    "image": "user_15.jpg"
+  },
+  {
+    "id": 16,
+    "first_name": "Ermanno",
+    "last_name": "Dadley",
+    "email": "edadleyf@mashable.com",
+    "password": "gKdC2iXF",
+    "category": "user",
+    "image": "user_16.jpg"
+  },
+  {
+    "id": 17,
+    "first_name": "Kit",
+    "last_name": "Barbour",
+    "email": "kbarbourg@moonfruit.com",
+    "password": "6vqEe65siqMX",
+    "category": "user",
+    "image": "user_17.jpg"
+  },
+  {
+    "id": 18,
+    "first_name": "Kimmie",
+    "last_name": "Axten",
+    "email": "kaxtenh@sciencedaily.com",
+    "password": "VIf6Bl",
+    "category": "user",
+    "image": "user_18.jpg"
+  },
+  {
+    "id": 19,
+    "first_name": "Magdalena",
+    "last_name": "Bassford",
+    "email": "mbassfordi@yandex.ru",
+    "password": "d4ANmh",
+    "category": "user",
+    "image": "user_19.jpg"
+  },
+  {
+    "id": 20,
+    "first_name": "Zacharias",
+    "last_name": "Offell",
+    "email": "zoffellj@dagondesign.com",
+    "password": "eksrTkKehA",
+    "category": "user",
+    "image": "user_20.jpg"
+  }
+]
