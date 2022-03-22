@@ -4,6 +4,8 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
+const { validationResult } = require("express-validator");
+
 module.exports = {
   profile: (req, res) => {
     res.render(path.join(__dirname, "../views/dinamic/userProfile"));
@@ -13,24 +15,29 @@ module.exports = {
     res.render(path.join(__dirname, "../views/static/profile"));
   },
   store: (req, res) => {
-    if (req.file) {
-      let newUser = {
-        id: users[users.length - 1].id + 1,
-        ...req.body,
-        image: req.file.filename,
-      };
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      res.redirect("/");
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      if (req.file) {
+        let newUser = {
+          id: users[users.length - 1].id + 1,
+          ...req.body,
+          image: req.file.filename,
+        };
+        users.push(newUser);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+        res.redirect("/");
+      } else {
+        let newUser = {
+          id: users[users.length - 1].id + 1,
+          ...req.body,
+          image: "default-image.png",
+        };
+        users.push(newUser);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+        res.redirect("/profile");
+      }
     } else {
-      let newUser = {
-        id: users[users.length - 1].id + 1,
-        ...req.body,
-        image: "default-image.png",
-      };
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-      res.redirect("/profile");
+      res.render("../views/static/login");
     }
   },
   edit: (req, res) => {
