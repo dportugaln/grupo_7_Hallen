@@ -42,7 +42,7 @@ router.get("/", userControllers.profile);
 
 /*create one product*/
 router.get("/create", userControllers.create);
-router.post("/", validateRegister, userControllers.store);
+router.post("/profile", userControllers.store);
 
 /*edit one product*/
 router.get("/edit/:id", userControllers.edit);

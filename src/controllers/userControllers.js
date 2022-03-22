@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const usersFilePath = path.join(__dirname, "../../data/users.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+// const usersFilePath = path.join(__dirname, "../../data/users.json");
+// const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const { validationResult } = require("express-validator");
 
@@ -15,6 +15,7 @@ module.exports = {
     res.render(path.join(__dirname, "../views/static/profile"));
   },
   store: (req, res) => {
+    // res.send(req);
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       if (req.file) {
@@ -25,7 +26,7 @@ module.exports = {
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        res.redirect("/");
+        res.redirect("/user/profile");
       } else {
         let newUser = {
           id: users[users.length - 1].id + 1,
@@ -34,7 +35,7 @@ module.exports = {
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        res.redirect("/profile");
+        res.redirect("/user/profile");
       }
     } else {
       res.render("../views/static/login");
