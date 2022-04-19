@@ -54,5 +54,12 @@
   "description": "la remera q usa guille",
   "category": "shoes",
   "image": "1647989993021_img_.jpeg"
+ },
+ {
+  "id": 7,
+  "name": "Producto nuevo",
+  "description": "Es una prueba",
+  "category": "shirts",
+  "image": "1650322314457_img_.png"
  }
 ]

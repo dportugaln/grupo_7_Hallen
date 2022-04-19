@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const webRoutes = require("./src/routes/webRoutes");
 const productsRoutes = require("./src/routes/productsRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 const publicPath = path.resolve(__dirname, "./public");
 const logMiddelware = require("./src/middlewares/userLogs");
 
@@ -15,6 +16,8 @@ app.set("views", path.join(__dirname, "/views"));
 app.use("/", webRoutes);
 
 app.use("/products", productsRoutes);
+
+app.use("/user", userRoutes);
 
 app.use(logMiddelware);
 

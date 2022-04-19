@@ -1,23 +1,25 @@
 const fs = require("fs");
 const path = require("path");
 
-// const usersFilePath = path.join(__dirname, "../../data/users.json");
-// const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const usersFilePath = path.join(__dirname, "../../data/users.json");
+const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const { validationResult } = require("express-validator");
 
 module.exports = {
   profile: (req, res) => {
-    res.render(path.join(__dirname, "../views/dinamic/userProfile"));
+    res.render(path.join(__dirname, "../views/dinamic/profile"));
   },
 
   create: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/profile"));
+    res.render(path.join(__dirname, "../views/dinamic/profile"));
   },
   store: (req, res) => {
     // res.send(req);
     let errors = validationResult(req);
     if (errors.isEmpty()) {
+      //Es necesario este if? Porque cuando creamos usuarios no les damos la opción
+      //de poner imágenes.
       if (req.file) {
         let newUser = {
           id: users[users.length - 1].id + 1,
@@ -26,7 +28,7 @@ module.exports = {
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        res.redirect("/user/profile");
+        res.redirect("/profile");
       } else {
         let newUser = {
           id: users[users.length - 1].id + 1,
@@ -35,7 +37,7 @@ module.exports = {
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        res.redirect("/user/profile");
+        res.redirect("/profile");
       }
     } else {
       res.render("../views/static/login");
