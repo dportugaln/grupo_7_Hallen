@@ -12,7 +12,7 @@ module.exports = {
   },
 
   create: (req, res) => {
-    res.render(path.join(__dirname, "../views/dinamic/profile"));
+    res.render(path.join(__dirname, "../views/static/login"));
   },
   store: (req, res) => {
     // res.send(req);
