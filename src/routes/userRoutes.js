@@ -37,21 +37,21 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage });
 
-/*get all products*/
-router.get("/user", userControllers.profile);
+/*get all users*/
+router.get("/profile", userControllers.profile);
 
-/*create one product*/
-router.get("user/create", userControllers.create);
-router.post("user/profile", validateRegister, userControllers.store);
+/*create one useer*/
+router.get("/create", userControllers.create);
+router.post("/create", userControllers.store);
 
-/*edit one product*/
+/*edit one user*/
 router.get("user/edit/:id", userControllers.edit);
 router.post("user/", uploadFile.single("image"), userControllers.update);
 
-// /*get one product*/
+// /*get one user*/
 // router.get("/:id", userControllers.detail);
 
-/* delete one product*/
+/* delete one user*/
 router.delete("user/delete/:id", userControllers.destroy);
 
 module.exports = router;

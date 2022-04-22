@@ -61,5 +61,12 @@
   "description": "Es una prueba",
   "category": "shirts",
   "image": "1650322314457_img_.png"
+ },
+ {
+  "id": 8,
+  "name": "remerita de la escoba",
+  "description": "la remera q usa guille",
+  "category": "shirts",
+  "image": "1650586541117_img_.gif"
  }
 ]

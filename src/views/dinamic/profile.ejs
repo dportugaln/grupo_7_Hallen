@@ -5,11 +5,11 @@
     <%- include('../partials/header') %>
       <main class="profile-main">
         <section class="profile-info">
-          <!-- <div class="img"> -->
-          <img src="<%=user.image%>" alt="<%=user.image%>" />
-          <!-- </div> -->
-          <div class="profile-info">
-            <h4 class="profile-name">
+          <div class="img">
+          <img src="<%=newUser.image%>" alt="<%=newUser.image%>" />
+          </div>
+         <div class="profile-info"> -->
+             <h4 class="profile-name"> -->
               <%= user.first_name %>
             </h4>
             <h4 class="profile-last_name">
@@ -20,9 +20,9 @@
             </h4>
             <h4 class="profile-sex">
               <%= user.sex %>
-            </h4>
-            <a href="/profile/edit/<%=user.id%>"><button>Editar</button></a>
-          </div>
+            </h4> -->
+          <a href="/profile/edit/<%=user.id%>"><button>Editar</button></a> --> 
+          </div> 
 
 
       </main>
