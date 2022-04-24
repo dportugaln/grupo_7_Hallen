@@ -276,27 +276,9 @@
   "image": "default-image.png"
  },
  {
-  "id": 45,
-  "image": "default-image.png"
- },
+  "id": 45 },
  {
-  "id": 46,
+  "id": 51,
   "image": "default-image.png"
- },
- {
-  "id": 47,
-  "image": "default-image.png"
- },
- {
-  "id": 48,
-  "image": "default-image.png"
- },
- {
-  "id": 49,
-  "image": "default-image.png"
- },
- {
-  "id": 50,
-  "image": "default-image.png"
- }
+}
 ]
