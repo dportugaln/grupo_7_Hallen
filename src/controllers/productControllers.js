@@ -13,6 +13,7 @@ module.exports = {
     res.render(path.join(__dirname, "../views/static/productCreate"));
   },
   store: (req, res) => {
+    console.log('....', req.body);
     if (req.file) {
       let newProduct = {
         id: products[products.length - 1].id + 1,
@@ -48,6 +49,7 @@ module.exports = {
     });
   },
   update: (req, res) => {
+    console.log('¿¿¿¿¿', req.body)
     let id = req.params.id;
     let productToEdit = products.find((product) => product.id == id);
 

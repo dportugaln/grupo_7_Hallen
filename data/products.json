@@ -42,7 +42,6 @@
   "description": "la remera q usa guille",
   "category": "shirts",
   "image": "1646779787594_img_.webp"
-  
  },
  {
   "id": 6,
@@ -67,16 +66,9 @@
  },
  {
   "id": 9,
-  "name": "Producto nuevo, nuevo",
-  "description": "Es el más nuevo",
-  "category": "jeans",
-  "image": "1650755719486_img_.png"
- },
- {
-  "id": 10,
-  "name": "Otra prueba para crear",
-  "description": "segunda del día",
+  "name": "Producto de prueba",
+  "description": "nuevo producto",
   "category": "shirts",
-  "image": "1650755795433_img_.png"
+  "image": "default-image.png"
  }
 ]
