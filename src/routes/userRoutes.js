@@ -38,11 +38,11 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage });
 
 /*get all products*/
-router.get("/", userControllers.profile);
+router.get("/profile", userControllers.profile);
 
 /*create one product*/
 router.get("/create", userControllers.create);
-router.post("/profile", userControllers.store);
+router.post("/create", userControllers.store);
 
 /*edit one product*/
 router.get("/edit/:id", userControllers.edit);

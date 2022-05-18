@@ -3,31 +3,31 @@
   <body>
     <!-- HEADER -->
     <%- include('../partials/header') %>
-      <main class="profile-main">
-        <section class="profile-info">
-          <div class="img">
-          <img src="<%=newUser.image%>" alt="<%=newUser.image%>" />
-          </div>
-         <div class="profile-info"> -->
-             <h4 class="profile-name"> -->
-              <%= user.first_name %>
-            </h4>
-            <h4 class="profile-last_name">
-              <%= user.last_name %>
-            </h4>
-            <h4 class="profile-category">
-              <%= user.category %>
-            </h4>
-            <h4 class="profile-sex">
-              <%= user.sex %>
-            </h4> -->
-          <a href="/profile/edit/<%=user.id%>"><button>Editar</button></a> --> 
-          </div> 
+    <main class="profile-main">
+      <section class="profile-info">
+        <div class="img">
+        <img src="<%=newUser.id%>" alt="<%=newUser.id%>" />
+        </div> 
+     <!-- <div class="profile-info"> 
+            <h4 class="profile-name"> 
+             <%= newUser.id %>
+          </h4> 
+          <h4 class="profile-last_name">
+            <%= user.last_name %>
+          </h4>
+          <h4 class="profile-category">
+            <%= user.category %>
+          </h4>
+          <h4 class="profile-sex">
+            <%= user.sex %>
+          </h4>  -->
+       <a href="/profile/edit/<%newUser.id%>"><button>Editar</button></a>
+        </div>  
 
 
-      </main>
+    </main>
       <!-- FOOTER -->
-      <%- include('.. /partials/footer') %>
+      <%- include('../partials/footer') %>
   </body>
 
   </html>
