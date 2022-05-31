@@ -15,6 +15,7 @@ module.exports = {
     res.render(path.join(__dirname, "../views/static/login"));
   },
   store: (req, res) => {
+    let newUser = {};
     console.log(req.body);
     console.log("aca estoy");
     // res.send(req);
@@ -25,22 +26,23 @@ module.exports = {
       if (req.file) {
         let newUser = {
           id: users[users.length - 1].id + 1,
-          ...req.body,
+
           image: req.file.filename,
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        res.redirect("/profile");
+        res.redirect("/user/profile");
       } else {
         let newUser = {
           id: users[users.length - 1].id + 1,
-          ...req.body,
+
           image: "default-image.png",
         };
         users.push(newUser);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
         console.log(req.body);
-        res.redirect("/");
+        console.log(newUser);
+        res.redirect("/user/profile");
       }
     } else {
       res.render("../views/static/login");

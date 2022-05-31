@@ -10,36 +10,31 @@
   "size": "XL"
  },
  {
-  "id": 6,
-  "nombre": "SECADOR DE PELO FULL TECNOLOGI 5000 TEKNIKPRO",
-  "descripcion": "pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec",
-  "precio": 47421.87,
-  "categoria": "Cuidador Personal",
-  "color": "Azul"
- },
- {
   "id": 2,
-  "nombre": "Difusor Ultrasonico 300ml GADNIC",
-  "descripcion": "cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in",
-  "precio": 31022.84,
-  "categoria": "Climatizacion",
-  "color": "Azul"
+  "name": "Difusor Ultrasonico 300ml GADNIC",
+  "description": "cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in",
+  "price": 31022.84,
+  "category": "Climatizacion",
+  "color": "Azul",
+  "image": "Sin imagen"
  },
  {
   "id": 3,
-  "nombre": "Aspiradora Inalámbrica Electrolux 2 en 1 120W ERG26",
-  "descripcion": "interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae",
-  "precio": 63464.78,
-  "categoria": "Electrohogar",
-  "color": "Azul"
+  "name": "Aspiradora Inalámbrica Electrolux 2 en 1 120W ERG26",
+  "description": "interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae",
+  "price": 63464.78,
+  "category": "Electrohogar",
+  "color": "Azul",
+  "image": "Sin imagen"
  },
  {
   "id": 4,
-  "nombre": "SECADOR DE PELO FULL TECNOLOGI 5000 TEKNIKPRO",
-  "descripcion": "ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet",
-  "precio": 24024.91,
-  "categoria": "Cuidador Personal",
-  "color": "Negro"
+  "name": "SECADOR DE PELO FULL TECNOLOGI 5000 TEKNIKPRO",
+  "description": "ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet",
+  "price": 24024.91,
+  "category": "Cuidador Personal",
+  "color": "Negro",
+  "image": "Sin imagen"
  },
  {
   "id": 5,
@@ -68,5 +63,12 @@
   "description": "la remera q usa guille",
   "category": "shirts",
   "image": "1650586541117_img_.gif"
+ },
+ {
+  "id": 9,
+  "name": "Producto de prueba",
+  "description": "nuevo producto",
+  "category": "shirts",
+  "image": "default-image.png"
  }
 ]
