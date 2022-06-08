@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     descriptionProduct: {
-      type: DataTypes.TEXT(),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     imageProduct: {
@@ -22,9 +22,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER(20),
       allowNull: false,
     },
-    stockProduct: {
-      type: DataTypes.INTEGER(5),
+    Category_idCategory: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
     },
   });
+
+  Product.associate = (models) => {
+    Product.belongsTo(models.Category, {
+      as: "category",
+      foreignKey: "Category_idCategory",
+    });
+  };
+
+  return Product;
 };

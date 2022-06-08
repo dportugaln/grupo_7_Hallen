@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const db = require("../../database/models");
 
 const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -9,11 +10,11 @@ module.exports = {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
 
-  create: (req, res) => {
-    res.render(path.join(__dirname, "../views/static/productCreate"));
-  },
+  // create: (req, res) => {
+  //   res.render(path.join(__dirname, "../views/static/productCreate"));
+  // },
   store: (req, res) => {
-    console.log('....', req.body);
+    console.log("....", req.body);
     if (req.file) {
       let newProduct = {
         id: products[products.length - 1].id + 1,
@@ -34,6 +35,12 @@ module.exports = {
       res.redirect("/products");
     }
   },
+  create: (req, res) => {
+    db.Category.findAll().then((categorias) => {
+      nombresCategorias = categorias.nameCategory;
+      console.log(nombresCategorias);
+    });
+  },
   detail: (req, res) => {
     let id = req.params.id;
     let product = products.find((product) => product.id == id);
@@ -49,7 +56,7 @@ module.exports = {
     });
   },
   update: (req, res) => {
-    console.log('¿¿¿¿¿', req.body)
+    console.log("¿¿¿¿¿", req.body);
     let id = req.params.id;
     let productToEdit = products.find((product) => product.id == id);
 

@@ -11,4 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  Category.associate = (models) => {
+    Category.hasToMany(models.Product, {
+      as: "product",
+      foreignKey: "Category_idCategory",
+    });
+  };
+  return Category;
 };
