@@ -7,7 +7,7 @@
 
     <main class="add-product">
       <div class="product-form">
-        <form action="/products" method="POST" enctype="multipart/form-data">
+        <form action="/products/create" method="POST" enctype="multipart/form-data">
           <div class="name">
             <label for="name">Producto</label>
             <input type="text" name="name" id="name" required>
@@ -23,9 +23,9 @@
           <div class="category">
             <label for="category">Categoría</label>
             <select name="category" required>
-              <option value="empty">Seleccionar</option>
-              <option value="shoes">Calzados</option>
-              <option value="shirts">Remeras</option>
+              <% categories.forEach(oneCategory => { %>
+                <option value="<%= oneCategory.idCategory %>"><%= oneCategory.nameCategory %> </option>
+               <% }) %>
               <option value="jeans">Jeans</option>
             </select>
           </div>

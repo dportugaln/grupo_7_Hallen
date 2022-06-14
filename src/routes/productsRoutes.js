@@ -20,7 +20,7 @@ router.get("/", productControllers.categories);
 
 /*create one product*/
 router.get("/create", productControllers.create);
-router.post("/", uploadFile.single("image"), productControllers.store);
+router.post("/create", uploadFile.single("image"), productControllers.store);
 
 /*edit one product*/
 router.get("/edit/:id", productControllers.edit);

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const db = require("../../database/models");
+const Category = require("../../database/models/CategoryModel");
 
 const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -14,32 +14,25 @@ module.exports = {
   //   res.render(path.join(__dirname, "../views/static/productCreate"));
   // },
   store: (req, res) => {
-    console.log("....", req.body);
-    if (req.file) {
-      let newProduct = {
-        id: products[products.length - 1].id + 1,
-        ...req.body,
-        image: req.file.filename,
-      };
-      products.push(newProduct);
-      fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-      res.redirect("/");
-    } else {
-      let newProduct = {
-        id: products[products.length - 1].id + 1,
-        ...req.body,
-        image: "default-image.png",
-      };
-      products.push(newProduct);
-      fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-      res.redirect("/products");
-    }
+    const _body = req.body;
+        _body.image = req.file ? req.file.filename : '';
+        _body.userId = Math.ceil(Math.random() * 3);
+
+        Product
+            .create(req.body)
+            .then(productStored => {
+                // Asociar los colores que querés al producto creado
+                productStored.addColors(req.body.colors);
+
+                return res.redirect(`products/${productStored.id}`);
+            })
+            .catch(error => res.send(error));
   },
   create: (req, res) => {
-    db.Category.findAll().then((categorias) => {
-      nombresCategorias = categorias.nameCategory;
-      console.log(nombresCategorias);
-    });
+    Category.findAll().then( categories => {
+      return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
+    })
+    // let colors = await Color.findAll();
   },
   detail: (req, res) => {
     let id = req.params.id;
