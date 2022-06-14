@@ -11,4 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  Size.associate = (models) => {
+    Size.belongsTo(models.Product, {
+      as: "product",
+      foreignKey: "Products_idProduct",
+    });
+  };
+  return Size;
 };
