@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     idorders: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primeryKey: true,
+      primaryKey: true,
       allowNull: false,
     },
     order_date: {

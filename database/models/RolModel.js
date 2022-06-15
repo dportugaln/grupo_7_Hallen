@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     idrol: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primeryKey: true,
+      primaryKey: true,
       allowNull: false,
     },
     rol: {
