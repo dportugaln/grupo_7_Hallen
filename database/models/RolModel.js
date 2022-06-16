@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     rol: {
-      type: DataTypes.VARCHAR(45),
+      type: DataTypes.STRING(45),
       allowNull: false,
     },
   });

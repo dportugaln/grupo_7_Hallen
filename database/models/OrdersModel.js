@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  Order.associate = (models) => {
-    Order.hasToMany(models.User, {
-      as: "user",
-      foreignKey: "user_idUsers",
-    });
-  };
+  // Order.associate = (models) => {
+  //   Order.hasMany(models.User, {
+  //     as: "user",
+  //     foreignKey: "user_idUsers",
+  //   });
+  // };
   return Order;
 };

@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const Category = require("../../database/models/CategoryModel");
+const db = require("../../database/models");
 
 const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -8,6 +8,15 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 module.exports = {
   categories: (req, res) => {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
+  },
+  index: (req, res) => {
+    db.Product.findAll()
+            .then(products => {
+              return res.json({products})
+                // return res.render('products/index', { products });
+            })
+            .catch(error => res.send(error));
+    // res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
 
   // create: (req, res) => {
