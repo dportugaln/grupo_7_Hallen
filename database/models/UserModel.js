@@ -35,11 +35,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  User.associate = (models) => {
-    User.hasMany(models.Rol, {
-      as: "rol",
-      foreignKey: "rol_idrol",
-    });
-  };
+  // User.associate = (models) => {
+  //   User.hasMany(models.Rol, {
+  //     as: "rol",
+  //     foreignKey: "rol_idrol",
+  //   });
+  // };
   return User;
 };

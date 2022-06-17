@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Category = sequelize.define("category", {
+  let alias = "category";
+  let cols = {
     idCategory: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -10,12 +11,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(45),
       allowNull: false,
     },
-  });
-  Category.associate = (models) => {
-    Category.hasMany(models.Product, {
-      as: "Product",
-      foreignKey: "Category_idCategory",
-    });
   };
+  let conf = {
+    timestamps : false,
+    tableName : "category"
+  }
+  const Category = sequelize.define(alias , cols, conf );
+  // Category.associate = (models) => {
+  //   Category.hasMany(models.Product, {
+  //     as: "Product",
+  //     foreignKey: "Category_idCategory",
+  //   });
+  // };
   return Category;
 };

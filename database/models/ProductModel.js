@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     Category_idCategory: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   };
@@ -37,10 +37,10 @@ module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define(alias, cols, conf);
 
   // Product.associate = (models) => {
-    Product.belongsTo(models.Category, {
-      as: "category",
-      foreignKey: "Category_idCategory",
-    });
+  //   Product.belongsTo(models.Category, {
+  //     as: "category",
+  //     foreignKey: "Category_idCategory",
+  //   });
   // };
 
   return Product;
