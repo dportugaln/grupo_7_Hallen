@@ -17,11 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     tableName : "category"
   }
   const Category = sequelize.define(alias , cols, conf );
-  // Category.associate = (models) => {
-  //   Category.hasMany(models.Product, {
-  //     as: "Product",
-  //     foreignKey: "Category_idCategory",
-  //   });
-  // };
+ 
+  Category.associate = (models) => {
+    Category.belongsTo(models.Product, {
+      as: "product",
+      foreignKey: "Category_idCategory",
+    });
+  };
   return Category;
 };

@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  
   Color.associate = (models) => {
     Color.belongsTo(models.Product, {
       as: "product",

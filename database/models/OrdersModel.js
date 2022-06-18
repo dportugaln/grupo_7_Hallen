@@ -18,11 +18,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  // Order.associate = (models) => {
-  //   Order.hasMany(models.User, {
-  //     as: "user",
-  //     foreignKey: "user_idUsers",
-  //   });
-  // };
+
+
+  Order.associate = (models) => {
+    Order.belongsToMany(models.Product, {
+      as: "product",
+      foreignKey: "",
+    });
+  };
+
+  Order.associate = (models) => {
+    Order.hasMany(models.User, {
+      as: "user",
+      foreignKey: "user_idUsers",
+    });
+  };
   return Order;
 };

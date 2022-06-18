@@ -35,11 +35,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  // User.associate = (models) => {
-  //   User.hasMany(models.Rol, {
-  //     as: "rol",
-  //     foreignKey: "rol_idrol",
-  //   });
-  // };
+ 
+  User.associate = (models) => {
+    User.hasMany(models.Rol, {
+      as: "rol",
+      foreignKey: "rol_idrol",
+    });
+  };
+
+  User.associate = (models) => {
+    User.belongsTo(models.Order, {
+      as: "order",
+      foreignKey: "user_idUsers",
+    
+    });
+  };
   return User;
 };
