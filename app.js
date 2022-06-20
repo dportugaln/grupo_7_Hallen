@@ -7,6 +7,9 @@ const userRoutes = require("./src/routes/userRoutes");
 const publicPath = path.resolve(__dirname, "./public");
 const logMiddelware = require("./src/middlewares/userLogs");
 const methodOverride = require("method-override");
+
+// require('./database/associations');
+
 app.set("view engine", "ejs");
 
 app.use(express.static(publicPath));

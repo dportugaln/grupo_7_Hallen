@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   
-  Color.associate = (models) => {
-    Color.belongsTo(models.Product, {
-      as: "product",
-      foreignKey: "Products_idProduct",
-    });
-  };
+  // Color.associate = (models) => {
+  //   Color.belongsTo(models.Product, {
+  //     as: "product",
+  //     foreignKey: "Products_idProduct",
+  //   });
+  // };
   return Color;
 };
