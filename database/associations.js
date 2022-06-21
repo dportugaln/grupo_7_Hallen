@@ -7,28 +7,23 @@ const Rol = require("./models/RolModel");
 const Size = require("./models/SizeModel");
 const User = require("./models/UserModel");
 
+
 Product.associate = (models) => {
     Product.belongsTo(Category, {
         as: "category",
         foreignKey: "Category_idCategory"
     })
-};
 
-Product.associate = (models) => {
     Product.belongsToMany(Order, {
         as: "order",
         foreignKey: "orders_idorders",
     })
-};
 
-Product.associate = (models) => {
     Product.belongsTo(Color, {
         as: "color",
         foreignKey: "Products_idProduct",
     })
-};
 
-Product.associate = (models) => {
     Product.belongsTo(Size, {
         as: "size",
         foreignKey: "Size_idSize",
@@ -47,9 +42,7 @@ Order.associate = (models) => {
         as: "order",
         foreignKey: "orders_idorders"
     })
-};
 
-Order.associate = (models) => {
     Order.belongsTo(User, {
         as: "order",
         foreignKey: "users_idUsers"
@@ -82,9 +75,7 @@ User.associate = (models) => {
         as: "rol",
         foreignKey: "rol_idrol",
     });
-};
 
-User.associate = (models) => {
     User.belongsTo(models.Order, {
         as: "order",
         foreignKey: "user_idUsers",
@@ -92,4 +83,4 @@ User.associate = (models) => {
     });
 };
 
-
+module.exports = {Product, User, Size, Rol, Color, Order, Category};

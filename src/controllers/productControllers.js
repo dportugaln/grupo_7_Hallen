@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const bd = require("../../database/models");
-require('../../database/associations');
+const {Product} = require("../../database/models");
 
 const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -11,8 +10,8 @@ module.exports = {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
   index: (req, res) => {
-    bd.product.findAll({
-      // include: [{association: "category"}]
+    Product.findAll({
+      include: ['category']
     })
             .then(products => {
               return res.json({products})
@@ -26,19 +25,19 @@ module.exports = {
   //   res.render(path.join(__dirname, "../views/static/productCreate"));
   // },
   store: (req, res) => {
-    const _body = req.body;
-        _body.image = req.file ? req.file.filename : '';
-        _body.userId = Math.ceil(Math.random() * 3);
+    // const _body = req.body;
+    //     _body.image = req.file ? req.file.filename : '';
+    //     _body.userId = Math.ceil(Math.random() * 3);
 
-        Product
-            .create(req.body)
-            .then(productStored => {
-                // Asociar los colores que querés al producto creado
-                productStored.addColors(req.body.colors);
+    //     Product
+    //         .create(req.body)
+    //         .then(productStored => {
+    //             // Asociar los colores que querés al producto creado
+    //             productStored.addColors(req.body.colors);
 
-                return res.redirect(`products/${productStored.id}`);
-            })
-            .catch(error => res.send(error));
+    //             return res.redirect(`products/${productStored.id}`);
+    //         })
+    //         .catch(error => res.send(error));
   },
   create: (req, res) => {
     Category.findAll().then( categories => {

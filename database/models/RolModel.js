@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  // Rol.associate = (models) => {
-  //   Rol.belongsTo(models.User, {
-  //     as: "user",
-  //     foreignKey: "rol_idrol",
-  //   });
-  // };
+  Rol.associate = (models) => {
+    Rol.belongsTo(models.User, {
+      as: "user",
+      foreignKey: "rol_idrol",
+    });
+  };
   return Rol;
 };

@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   
-  // Size.associate = (models) => {
-  //   Size.belongsTo(models.Product, {
-  //     as: "product",
-  //     foreignKey: "Products_idProduct",
-  //   });
-  // };
+  Size.associate = (models) => {
+    Size.belongsTo(models.Product, {
+      as: "product",
+      foreignKey: "Products_idProduct",
+    });
+  };
   return Size;
 };
