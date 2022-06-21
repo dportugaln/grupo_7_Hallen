@@ -45,7 +45,10 @@ module.exports = {
         res.redirect("/user/profile");
       }
     } else {
-      res.render("../views/static/login");
+      res.render("../views/static/login", {
+        errors: errors.array(),
+        old: req.body,
+      });
     }
   },
   edit: (req, res) => {

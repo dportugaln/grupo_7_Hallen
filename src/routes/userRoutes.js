@@ -6,13 +6,19 @@ const userControllers = require("../controllers/userControllers");
 const { check } = require("express-validator");
 
 let validateRegister = [
-  check("name")
+  check("first_name")
     .notEmpty()
     .withMessage("Este campo es obligatorio")
     .bail()
     .isLength({ min: 5 })
     .withMessage("Debes ingresar al menos 5 caracteres"),
-  check("mail")
+    check("last_name")
+    .notEmpty()
+    .withMessage("Este campo es obligatorio")
+    .bail()
+    .isLength({ min: 5 })
+    .withMessage("Debes ingresar al menos 5 caracteres"),
+  check("email")
     .notEmpty()
     .withMessage("Este campo es obligatorio")
     .bail()
@@ -24,7 +30,20 @@ let validateRegister = [
     .bail()
     .isLength({ min: 8 })
     .withMessage("Debes ingresar al menos 8 caracteres"),
+  /* check("id_num")
+    .notEmpty()
+    .withMessage("Este campo es obligatorio")
+    .bail()
+    .isLength({ min: 7 })
+    .withMessage("Debes ingresar al menos 8 caracteres"),
+  check("birth_date")
+    .notEmpty()
+    .withMessage("Este campo es obligatorio")
+    .bail()
+    .isDate()
+    .withMessage("Debes ingresar una fecha de nacimiento válida"), */
 ];
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -42,7 +61,7 @@ router.get("/profile", userControllers.profile);
 
 /*create one product*/
 router.get("/create", userControllers.create);
-router.post("/create", userControllers.store);
+router.post("/create", validateRegister, userControllers.store);
 
 /*edit one product*/
 router.get("/edit/:id", userControllers.edit);
