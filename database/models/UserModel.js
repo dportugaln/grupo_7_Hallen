@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("user", {
+  const User = sequelize.define("User", {
     idUsers: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
- 
+
   User.associate = (models) => {
     User.hasMany(models.Rol, {
       as: "rol",
@@ -45,9 +45,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = (models) => {
     User.belongsTo(models.Order, {
-      as: "order",
+      as: "Order",
       foreignKey: "user_idUsers",
-    
     });
   };
   return User;
