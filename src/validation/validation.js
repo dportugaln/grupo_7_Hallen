@@ -1,26 +1,36 @@
 const { check } = require("express-validator");
-const userControllers = require("../controllers/userControllers");
-const router = require("../routes/userRoutes");
+// const bcrypt = require("bcryptjs");
 
-let validateRegister = [
-  check("name")
-    .notEmpty()
-    .withMessage("Este campo es obligatorio")
-    .bail()
-    .isLength({ min: 5 })
-    .withMessage("Debes ingresar al menos 5 caracteres"),
-  check("mail")
-    .notEmpty()
-    .withMessage("Este campo es obligatorio")
-    .bail()
-    .isEmail()
-    .withMessage("Debes ingresar un email valido"),
-  check("password")
-    .notEmpty()
-    .withMessage("Este campo es obligatorio")
-    .bail()
-    .isLength({ min: 8 })
-    .withMessage("Debes ingresar al menos 8 caracteres"),
-];
-
-router.post("/", validateRegister, userControllers.create);
+module.exports = {
+  userLogin: [
+    check("email")
+      .notEmpty()
+      .withMessage("Debes completar el email")
+      .bail()
+      .isEmail()
+      .withMessage("El email no es válido")
+      .bail(),
+    check("password", "La contraseña debe ser de al menos 8 caracteres")
+      .notEmpty()
+      .withMessage("Debes completar el password"),
+  ],
+  userCreate: [
+    check("email")
+      .notEmpty()
+      .withMessage("Debes completar el email")
+      .bail()
+      .isEmail()
+      .withMessage("El email no es válido"),
+    check("password", "La contraseña debe ser de al menos 8 caracteres")
+      .notEmpty()
+      .withMessage("Debes completar el password")
+      .bail()
+      .isLength({ min: 8 }),
+    check("image").custom((value, { req }) => {
+      if (req.file.error === "type") {
+        throw new Error("La imagen debe ser de tipo PNG");
+      }
+      return true;
+    }),
+  ],
+};
