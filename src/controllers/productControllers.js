@@ -18,10 +18,12 @@ module.exports = {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
   index: (req, res) => {
-    Product.findAll()
+    Product.findAll({
+      include: ["Category"],
+    })
       .then((products) => {
-        // return res.json({products})
-        return res.render("products", { products });
+        return res.json({ products });
+        // return res.render("products", { products });
       })
       .catch((error) => res.send(error));
     // res.render(path.join(__dirname, "../views/dinamic/categories"));
