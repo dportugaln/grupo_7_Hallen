@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Color = sequelize.define("color", {
+  const Color = sequelize.define("Color", {
     idColorProducts: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  
+
   Color.associate = (models) => {
     Color.belongsToMany(models.Product, {
       as: "Product",
       through: "products_has_color",
       foreignKey: "Products_idProduct",
       otherKey: "idProducts",
-      timestamps: false
+      timestamps: false,
     });
   };
   return Color;
