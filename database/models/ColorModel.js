@@ -13,9 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   Color.associate = (models) => {
-    Color.belongsTo(models.Product, {
-      as: "product",
+    Color.belongsToMany(models.Product, {
+      as: "Product",
+      through: "products_has_color",
       foreignKey: "Products_idProduct",
+      otherKey: "idProducts",
+      timestamps: false
     });
   };
   return Color;

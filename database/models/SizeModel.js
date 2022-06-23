@@ -13,9 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   Size.associate = (models) => {
-    Size.belongsTo(models.Product, {
-      as: "product",
+    Color.belongsToMany(models.Product, {
+      as: "Product",
+      through: "products_has_size",
       foreignKey: "Products_idProduct",
+      otherKey: "idProducts",
+      timestamps: false
     });
   };
   return Size;

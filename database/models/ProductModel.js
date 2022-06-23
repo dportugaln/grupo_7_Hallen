@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+
   let alias = "Product";
   let cols = {
     idProduct: {
@@ -29,39 +30,43 @@ module.exports = (sequelize, DataTypes) => {
     },
   };
   let conf = {
-    timestamps: false,
-    tableName: "products",
-  };
+    timestamps : false,
+    tableName : "products"
+  }
 
   const Product = sequelize.define(alias, cols, conf);
 
   Product.associate = (models) => {
     Product.belongsTo(models.Category, {
-      as: "category",
+      as: "Category",
       foreignKey: "Category_idCategory",
     });
   };
-
+ 
   Product.associate = (models) => {
-    Product.belongsTo(models.Color, {
-      as: "color",
-      foreignKey: "Products_idProduct",
+    Product.belongsToMany(models.Color, {
+      as: "Color",
+      through: "products_has_color",
+      foreignKey: "Color_idColor",
+      otherKey: "idColor",
+      timestamps: false
     });
   };
-  Product.associate = (models) => {
-    Product.belongsTo(models.Size, {
-      as: "size",
-      foreignKey: "Products_idProduct",
+   Product.associate = (models) => {
+    Product.belongsToMany(models.Size, {
+      as: "Size",
+      through: "products_has_size",
+      foreignKey: "Size_idSize",
+      otherKey: "idSize",
+      timestamps: false
     });
   };
-  Product.associate = (models) => {
-    Product.belongsToMany(models.Order, {
-      as: "Order",
-      through: "orders_has_products",
-      foreignKey: "Product_idProduct",
-      otherKey: "orders_idorders",
-    });
-  };
+  // Product.associate = (models) => {
+  //   Product.belongsToMany(models.Order, {
+  //     as: "order",
+  //     foreignKey: "",
+  //   });
+  // };
 
   return Product;
 };
