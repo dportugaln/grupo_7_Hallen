@@ -18,9 +18,7 @@ module.exports = {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
   index: (req, res) => {
-    Product.findAll({
-      include: ["Category"],
-    })
+    User.findAll()
       .then((products) => {
         return res.json({ products });
         // return res.render("products", { products });

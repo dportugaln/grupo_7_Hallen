@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("User", {
+  let alias = "User";
+  let cols = {
     idUsers: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -23,8 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     birthday: {
-      type: DataTypes.DATE,
-      allowNull: false,
+      type: DataTypes.DATE
     },
     sex: {
       type: DataTypes.STRING(10),
@@ -34,10 +34,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(20),
       allowNull: false,
     },
-  });
+  }
+  let conf = {
+    timestamps: false,
+    tableName: "users",
+  };
+  const User = sequelize.define( alias, cols, conf );
 
   User.associate = (models) => {
-    User.hasMany(models.Rol, {
+    User.belongsTo(models.Rol, {
       as: "Rol",
       foreignKey: "rol_idrol",
     });
