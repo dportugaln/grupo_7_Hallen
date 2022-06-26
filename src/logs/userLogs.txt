@@ -12,3 +12,4 @@ El usuario ingreso en: /products/css/styles.css
 El usuario ingreso en: /products/css/styles.css 
 El usuario ingreso en: /products/css/styles.css 
 El usuario ingreso en: /favicon.ico 
+El usuario ingreso en: /favicon.ico 

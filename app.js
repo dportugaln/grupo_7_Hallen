@@ -29,8 +29,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-app.use(cookieParser());
-app.use(auth);
+// app.use(cookieParser());
+// app.use(auth);
 
 app.use("/user", userRoutes);
 

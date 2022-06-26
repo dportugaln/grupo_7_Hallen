@@ -71,8 +71,8 @@ const uploadFile = multer({
 });
 
 /*login*/
-router.get("/profile", guestValidator, userControllers.profile);
-router.post("/profile", guestValidator, validate.userLogin, userControllers.profile);
+router.get("/profile", /* guestValidator, */ userControllers.profile);
+router.post("/profile", /* guestValidator, */ validate.userLogin, userControllers.profile);
 
 
 /*register*/

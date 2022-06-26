@@ -52,7 +52,7 @@ module.exports = {
     } else {
       res.render("../views/static/login", {
         // errors: errors.array(),
-        errors: betterErrors
+        errors: betterErrors,
         old: req.body,
       });
     }
