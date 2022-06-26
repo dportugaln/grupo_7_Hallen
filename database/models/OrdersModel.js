@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Order = sequelize.define("order", {
+  let alias = "Order";
+  let cols = {
     idorders: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -17,20 +18,28 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-  });
+    user_idUsers: {
+      type: DataTypes.INTEGER,
+    },
+  };
+  let conf = {
+    timestamps: false,
+    tableName: "orders",
+  };
+  const Order = sequelize.define(alias, cols, conf);
 
-  // Order.associate = (models) => {
-  //   Order.belongsToMany(models.Product, {
-  //     as: "product",
-  //     foreignKey: "",
-  //   });
-  // };
+  Order.associate = (models) => {
+    Order.belongsToMany(models.Product, {
+      as: "Product",
+      through: "orders_has_products",
+      foreignKey: "orders_idorders",
+      otherKey: "Product_idProduct",
+    });
 
-  // Order.associate = (models) => {
-  //   Order.hasMany(models.User, {
-  //     as: "user",
-  //     foreignKey: "user_idUsers",
-  //   });
-  // };
+    Order.hasMany(models.User, {
+      as: "User",
+      foreignKey: "user_idUsers",
+    });
+  };
   return Order;
 };

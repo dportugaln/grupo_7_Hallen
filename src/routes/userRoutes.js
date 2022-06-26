@@ -3,7 +3,9 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const userControllers = require("../controllers/userControllers");
-const validate = require("../validation/validation");
+const loginValidator = require ("../middlewares/loginValidator")
+const guestValidator = require ("../middlewares/guestValidator")
+const validate = require("../validation/userValidation");
 // const { check } = require("express-validator");
 
 // let validateRegister = [
@@ -68,12 +70,14 @@ const uploadFile = multer({
   },
 });
 
-/*get all products*/
-router.get("/profile", userControllers.profile);
+/*login*/
+router.get("/profile", guestValidator, userControllers.profile);
+router.post("/profile", guestValidator, validate.userLogin, userControllers.profile);
 
-/*create one product*/
+
+/*register*/
 router.get("/create", userControllers.create);
-router.post("/create", validate.userLogin, userControllers.store);
+router.post("/create", validate.userCreate, userControllers.store);
 
 /*edit one product*/
 router.get("/edit/:id", userControllers.edit);

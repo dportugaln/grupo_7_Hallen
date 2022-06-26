@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("user", {
+  let alias = "User";
+  let cols = {
     idUsers: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -23,8 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     birthday: {
-      type: DataTypes.DATE,
-      allowNull: false,
+      type: DataTypes.DATE
     },
     sex: {
       type: DataTypes.STRING(10),
@@ -34,21 +34,25 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(20),
       allowNull: false,
     },
-  });
+  }
+  let conf = {
+    timestamps: false,
+    tableName: "users",
+  };
+  const User = sequelize.define( alias, cols, conf );
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.Rol, {
-  //     as: "rol",
-  //     foreignKey: "rol_idrol",
-  //   });
-  // };
+  User.associate = (models) => {
+    User.belongsTo(models.Rol, {
+      as: "Rol",
+      foreignKey: "rol_idrol",
+    });
+  };
 
-  // User.associate = (models) => {
-  //   User.belongsTo(models.Order, {
-  //     as: "order",
-  //     foreignKey: "user_idUsers",
-
-  //   });
-  // };
+  User.associate = (models) => {
+    User.belongsTo(models.Order, {
+      as: "Order",
+      foreignKey: "user_idUsers",
+    });
+  };
   return User;
 };

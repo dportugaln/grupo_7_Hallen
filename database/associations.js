@@ -7,80 +7,84 @@ const Rol = require("./models/RolModel");
 const Size = require("./models/SizeModel");
 const User = require("./models/UserModel");
 
-
 Product.associate = (models) => {
-    Product.belongsTo(Category, {
-        as: "category",
-        foreignKey: "Category_idCategory"
-    })
+  Product.belongsTo(Category, {
+    as: "category",
+    foreignKey: "Category_idCategory",
+  });
 
-    Product.belongsToMany(Order, {
-        as: "order",
-        foreignKey: "orders_idorders",
-    })
+  Product.belongsToMany(Order, {
+    as: "order",
+    through: "orders_has_products",
+    foreignKey: "Product_idProduct",
+    otherKey: "orders_idorders",
+  });
 
-    Product.belongsTo(Color, {
-        as: "color",
-        foreignKey: "Products_idProduct",
-    })
+  Product.belongsTo(Color, {
+    as: "color",
+    foreignKey: "Products_idProduct",
+  });
 
-    Product.belongsTo(Size, {
-        as: "size",
-        foreignKey: "Size_idSize",
-    })
+  Product.belongsTo(Size, {
+    as: "size",
+    foreignKey: "Size_idSize",
+  });
 };
 
 Category.associate = (models) => {
-    Category.hasMany(Product, {
-        as: "product",
-        foreignKey: "Category_idCategory"
-    })
+  Category.hasMany(Product, {
+    as: "product",
+    foreignKey: "Category_idCategory",
+  });
 };
 
 Order.associate = (models) => {
-    Order.belongsToMany(Product, {
-        as: "order",
-        foreignKey: "orders_idorders"
-    })
+  Order.belongsToMany(Product, {
+    as: "product",
+    through: "orders_has_products",
+    foreignKey: "orders_idorders",
+    otherKey: "Product_idProduct",
+  });
 
-    Order.belongsTo(User, {
-        as: "order",
-        foreignKey: "users_idUsers"
-    })
+  Order.belongsTo(User, {
+    as: "order",
+    foreignKey: "users_idUsers",
+  });
 };
 
 Color.associate = (models) => {
-    Color.belongsToMany(Product, {
-        as: "product",
-        foreignKey: "Products_idProduct"
-    })
+  Color.belongsToMany(Product, {
+    as: "product",
+    through: "products_has_color",
+    foreignKey: "Color_idColorProducts",
+    otherKey: "Products_idProduct",
+  });
 };
 
 Rol.associate = (models) => {
-    Rol.hasMany(User, {
-        as: "user",
-        foreignKey: "rol_idrol"
-    })
+  Rol.hasMany(User, {
+    as: "user",
+    foreignKey: "rol_idrol",
+  });
 };
 
 Size.associate = (models) => {
-    Size.belongsTo(Product, {
-        as: "product",
-        foreignKey: "Products_idProduct",
-    });
+  Size.belongsTo(Product, {
+    as: "product",
+    foreignKey: "Products_idProduct",
+  });
 };
 
 User.associate = (models) => {
-    User.hasMany(models.Rol, {
-        as: "rol",
-        foreignKey: "rol_idrol",
-    });
+  User.hasMany(models.Rol, {
+    as: "rol",
+    foreignKey: "rol_idrol",
+  });
 
-    User.belongsTo(models.Order, {
-        as: "order",
-        foreignKey: "user_idUsers",
-
-    });
+  User.belongsTo(models.Order, {
+    as: "order",
+    foreignKey: "user_idUsers",
+  });
 };
 
-module.exports = {Product, User, Size, Rol, Color, Order, Category};
+module.exports = { Product, User, Size, Rol, Color, Order, Category };
