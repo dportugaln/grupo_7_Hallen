@@ -1,90 +1,92 @@
-// const {Product, Category, Orders, Color, Rol, Size, User } = require("./models")
-const Product = require("./models/ProductModel");
-const Category = require("./models/CategoryModel");
-const Order = require("./models/OrdersModel");
-const Color = require("./models/ColorModel");
-const Rol = require("./models/RolModel");
-const Size = require("./models/SizeModel");
-const User = require("./models/UserModel");
+const { Product, Category, Order, Color, Rol, Size, User } = require("./models")
+// const Product = require("./models/ProductModel");
+// const Category = require("./models/CategoryModel");
+// const Order = require("./models/OrdersModel");
+// const Color = require("./models/ColorModel");
+// const Rol = require("./models/RolModel");
+// const Size = require("./models/SizeModel");
+// const User = require("./models/UserModel");
 
-Product.associate = (models) => {
-  Product.belongsTo(Category, {
-    as: "category",
-    foreignKey: "Category_idCategory",
-  });
 
-  Product.belongsToMany(Order, {
-    as: "order",
-    through: "orders_has_products",
-    foreignKey: "Product_idProduct",
-    otherKey: "orders_idorders",
-  });
+Product.belongsTo(Category, {
+  as: "Category",
+  foreignKey: "Category_idCategory",
+});
 
-  Product.belongsTo(Color, {
-    as: "color",
-    foreignKey: "Products_idProduct",
-  });
+Category.hasMany(Product, {
+  as: "Product",
+  foreignKey: "Category_idCategory",
+});
 
-  Product.belongsTo(Size, {
-    as: "size",
-    foreignKey: "Size_idSize",
-  });
-};
+Product.belongsToMany(Order, {
+  as: "Order",
+  through: "orders_has_products",
+  foreignKey: "Product_idProduct",
+  otherKey: "orders_idorders",
+  timestamps: false,
+});
 
-Category.associate = (models) => {
-  Category.hasMany(Product, {
-    as: "product",
-    foreignKey: "Category_idCategory",
-  });
-};
+Order.belongsToMany(Product, {
+  as: "Product",
+  through: "orders_has_products",
+  foreignKey: "orders_idorders",
+  otherKey: "Product_idProduct",
+  timestamps: false,
+});
 
-Order.associate = (models) => {
-  Order.belongsToMany(Product, {
-    as: "product",
-    through: "orders_has_products",
-    foreignKey: "orders_idorders",
-    otherKey: "Product_idProduct",
-  });
+Product.belongsToMany(Color, {
+  as: "Color",
+  through: "products_has_color",
+  foreignKey: "Products_idProduct",
+  otherKey: "Color_idColorProducts",
+  timestamps: false,
+});
 
-  Order.belongsTo(User, {
-    as: "order",
-    foreignKey: "users_idUsers",
-  });
-};
+Color.belongsToMany(Product, {
+  as: "Product",
+  through: "products_has_color",
+  foreignKey: "Color_idColorProducts",
+  otherKey: "Products_idProduct",
+  timestamps: false,
+});
 
-Color.associate = (models) => {
-  Color.belongsToMany(Product, {
-    as: "product",
-    through: "products_has_color",
-    foreignKey: "Color_idColorProducts",
-    otherKey: "Products_idProduct",
-  });
-};
+Product.belongsToMany(Size, {
+  as: "Size",
+  through: "products_has_size",
+  foreignKey: "Products_idProduct",
+  otherKey: "Size_idSize",
+  timestamps: false,
+});
 
-Rol.associate = (models) => {
-  Rol.hasMany(User, {
-    as: "user",
-    foreignKey: "rol_idrol",
-  });
-};
+Size.belongsToMany(Product, {
+  as: "Product",
+  through: "products_has_size",
+  foreignKey: "Size_idSize",
+  otherKey: "Products_idProduct",
+  timestamps: false,
+});
 
-Size.associate = (models) => {
-  Size.belongsTo(Product, {
-    as: "product",
-    foreignKey: "Products_idProduct",
-  });
-};
+Order.hasMany(User, {
+  as: "User",
+  foreignKey: "idUsers",
+});
 
-User.associate = (models) => {
-  User.hasMany(models.Rol, {
-    as: "rol",
-    foreignKey: "rol_idrol",
-  });
+User.belongsTo(Order, {
+  as: "Order",
+  foreignKey: "idUsers",
+});
 
-  User.belongsTo(models.Order, {
-    as: "order",
-    foreignKey: "user_idUsers",
-  });
-};
+Rol.hasMany(User, {
+  as: "User",
+  foreignKey: "rol_idrol",
+});
+
+User.belongsTo(Rol, {
+  as: "Rol",
+  foreignKey: "rol_idrol",
+});
+
+
+
 
 module.exports = { Product, User, Size, Rol, Color, Order, Category };

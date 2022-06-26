@@ -20,18 +20,18 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     dni: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    birthday: {
+    birthdate: {
       type: DataTypes.DATE
     },
     sex: {
       type: DataTypes.STRING(10),
       allowNull: false,
     },
-    rol: {
-      type: DataTypes.STRING(20),
+    rol_idrol: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   }
@@ -41,18 +41,18 @@ module.exports = (sequelize, DataTypes) => {
   };
   const User = sequelize.define( alias, cols, conf );
 
-  User.associate = (models) => {
-    User.belongsTo(models.Rol, {
-      as: "Rol",
-      foreignKey: "rol_idrol",
-    });
-  };
+  // User.associate = (models) => {
+  //   User.belongsTo(models.Rol, {
+  //     as: "Rol",
+  //     foreignKey: "rol_idrol",
+  //   });
+  // };
 
-  User.associate = (models) => {
-    User.belongsTo(models.Order, {
-      as: "Order",
-      foreignKey: "user_idUsers",
-    });
-  };
+  // User.associate = (models) => {
+  //   User.belongsTo(models.Order, {
+  //     as: "Order",
+  //     foreignKey: "idUsers",
+  //   });
+  // };
   return User;
 };

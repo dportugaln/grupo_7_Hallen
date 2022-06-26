@@ -18,14 +18,14 @@ module.exports = (sequelize, DataTypes) => {
   };
   const Size = sequelize.define(alias, cols, conf);
 
-  Size.associate = (models) => {
-    Size.belongsToMany(models.Product, {
-      as: "Product",
-      through: "products_has_size",
-      foreignKey: "Products_idProduct",
-      otherKey: "idProducts",
-      timestamps: false,
-    });
-  };
+  // Size.associate = (models) => {
+  //   Size.belongsToMany(models.Product, {
+  //     as: "Product",
+  //     through: "products_has_size",
+  //     foreignKey: "Products_idProduct",
+  //     otherKey: "idProducts",
+  //     timestamps: false,
+  //   });
+  // };
   return Size;
 };

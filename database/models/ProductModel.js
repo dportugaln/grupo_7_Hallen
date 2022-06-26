@@ -35,39 +35,38 @@ module.exports = (sequelize, DataTypes) => {
 
   const Product = sequelize.define(alias, cols, conf);
 
-  Product.associate = (models) => {
-    Product.belongsTo(models.Category, {
-      as: "Category",
-      foreignKey: "Category_idCategory",
-    });
-  };
+  // Product.associate = (models) => {
+  //   Product.belongsTo(models.Category, {
+  //     as: "Category",
+  //     foreignKey: "Category_idCategory",
+  //   });
+  //   Product.belongsToMany(models.Color, {
+  //     as: "Color",
+  //     through: "product_has_color",
+  //     foreignKey: "Products_idProduct", //idProducts
+  //     otherKey: "idProducts", //Products_idProduct
+  //     timestamps: false,
+  //   });
+  // };
 
-  Product.associate = (models) => {
-    Product.belongsToMany(models.Color, {
-      as: "Color",
-      through: "products_has_color",
-      foreignKey: "Color_idColor",
-      otherKey: "idColor",
-      timestamps: false,
-    });
-  };
-  Product.associate = (models) => {
-    Product.belongsToMany(models.Size, {
-      as: "Size",
-      through: "products_has_size",
-      foreignKey: "Size_idSize",
-      otherKey: "idSize",
-      timestamps: false,
-    });
-  };
-  Product.associate = (models) => {
-    Product.belongsToMany(models.Order, {
-      as: "Order",
-      through: "orders_has_products",
-      foreignKey: "Product_idProduct",
-      otherKey: "orders_idorders",
-    });
-  };
+ 
+  // Product.associate = (models) => {
+  //   Product.belongsToMany(models.Size, {
+  //     as: "Size",
+  //     through: "products_has_size",
+  //     foreignKey: "Size_idSize",
+  //     otherKey: "idSize",
+  //     timestamps: false,
+  //   });
+  // };
+  // Product.associate = (models) => {
+  //   Product.belongsToMany(models.Order, {
+  //     as: "Order",
+  //     through: "orders_has_products",
+  //     foreignKey: "Product_idProduct",
+  //     otherKey: "orders_idorders",
+  //   });
+  // };
 
   return Product;
 };
