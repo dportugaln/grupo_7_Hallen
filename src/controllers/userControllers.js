@@ -90,4 +90,58 @@ module.exports = {
     fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, " "));
     res.redirect("/");
   },
+  validate: (req, res) => { 
+
+        User
+            .findOne({
+                where: { email: req.body.email}
+            })
+            .then(user => {
+                // Si el email existe
+                console.log(user);
+                if(user) {
+                    // Y la contraseña es válida
+                    if(req.body.password == user.password) {
+                        // Eliminamos la contraseña antes de guardar en sesión
+                        userData = user.dataValues;
+                        delete userData.password
+        
+                        req.session.user = userData;
+        
+                        // Si pidió que recordar
+                        if (req.body.remember) {
+                            // Generamos un token seguro, eso para que no pueda entrar cualquiera
+                            // https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js
+                            const token = crypto.randomBytes(64).toString('base64');
+        
+                            // Lo guardamos en nuestra base, para poder chequearlo luego
+                            user.createToken({userId: user.id, token});
+        
+                            // Recordamos al usuario por 3 meses         msegs  segs  mins  hs   días
+                            res.cookie('rememberToken', token, { maxAge: 1000 * 60  * 60 *  24 * 90 });
+                        }
+        
+                        return res.redirect('/users/profile');
+                    } else {
+                        return res.render('users/login', {
+                            errors: {
+                                password: {
+                                    msg: 'La contraseña no coincide con la base.' 
+                                }, 
+                            },
+                            old: req.body
+                        }); 
+                    }
+                } else {
+                    return res.render('users/login', {
+                        errors: {
+                            email: {
+                                msg: 'El email no se encuentra registrado en nuestra base de datos' 
+                            },
+                        },
+                        old: req.body 
+                    });
+                }
+            });      
+  }
 };

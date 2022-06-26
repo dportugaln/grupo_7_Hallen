@@ -71,17 +71,18 @@ const uploadFile = multer({
 });
 
 /*login*/
-router.get("/profile", /* guestValidator, */ userControllers.profile);
-router.post("/profile", /* guestValidator, */ validate.userLogin, userControllers.profile);
+
+router.post("/login", /* guestValidator, */ validate.userLogin, userControllers.validate);
 
 
 /*register*/
 router.get("/create", userControllers.create);
 router.post("/create", validate.userCreate, userControllers.store);
 
-/*edit one product*/
-router.get("/edit/:id", userControllers.edit);
-router.post("/", uploadFile.single("image"), userControllers.update);
+/*edit user*/
+router.get("/profile", /* guestValidator, */ userControllers.profile);
+router.get("/profile/:id", userControllers.edit);
+router.post("/profile", uploadFile.single("image"), userControllers.update);
 
 // /*get one product*/
 // router.get("/:id", userControllers.detail);
