@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/styles.css" />
 <%-include('../partials/head') %>
   <body>
     <!-- HEADER -->
@@ -14,27 +15,18 @@
             <p class="description">Precio</p>
           </div>
           <div class="card-action">
-            <i class="fa-solid fa-trash-can"></i>
-            <i class="fa-solid fa-plus"></i>
-            cantidad
-            <i class="fa-solid fa-minus"></i>
+            <div class="fields">
+              <div class="options">
+                <span class="text">Quantity:</span>
+                <input type="number" id="quantity" name="quantity" min="1" max="5">
+              </div>
+            </div>
+            <button class="cartIcons">
+              <i class="fas fa-trash-alt"></i>
+            </button> 
           </div>
         </div>
-        <div class="card-compra">
-          <div class="card-description">
-            <img src="images/remera.jpg" alt="compra1" />
-            <p class="precio">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            </p>
-            <p class="description">Precio</p>
-          </div>
-          <div class="card-action">
-            <i class="fad fa-trash-alt"></i>
-            <i class="far fa-plus-circle"></i>
-            cantidad
-            <i class="far fa-minus-circle"></i>
-          </div>
-        </div>
+       
       </div>
     </main>
 

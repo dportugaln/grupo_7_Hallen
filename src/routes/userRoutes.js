@@ -3,9 +3,9 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const userControllers = require("../controllers/userControllers");
-const loginValidator = require ("../middlewares/loginValidator")
-const guestValidator = require ("../middlewares/guestValidator")
-const validate = require("../validation/userValidation");
+// const loginValidator = require ("../middlewares/loginValidator")
+// const guestValidator = require ("../middlewares/guestValidator")
+// const validate = require("../validation/userValidation");
 // const { check } = require("express-validator");
 
 // let validateRegister = [
@@ -72,12 +72,12 @@ const uploadFile = multer({
 
 /*login*/
 
-router.post("/login", /* guestValidator, */ validate.userLogin, userControllers.validate);
+router.post("/login", /* guestValidator, */ userControllers.validate);
 
 
 /*register*/
 router.get("/create", userControllers.create);
-router.post("/create", validate.userCreate, userControllers.store);
+router.post("/create", userControllers.store);
 
 /*edit user*/
 router.get("/profile", /* guestValidator, */ userControllers.profile);

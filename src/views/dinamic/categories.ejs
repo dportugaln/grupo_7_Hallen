@@ -2,17 +2,64 @@
   <body>
     <!-- HEADER -->
     <%-include('../partials/header') %>
+    <main>
     <div>
-    <a href="/products/create">  <button class="submit" type="submit">Agregar nuevo producto</button></a>
+    <a href="/products/create">  <button class="btnProductCreate" type="submit">Agregar nuevo producto</button></a>
     </div>
-    <div>
-      <button class="submit" type="submit">Enviar</button>
-    </div>
-    <div>
-      <button class="submit" type="submit">Enviar</button>
+    <div class="products">
+      <div class="card">
+        <a href="product">
+          <article class="product">
+            <img
+              class="photo-product"
+              width="300"
+              src="images/remera.jpg"
+              alt="product1"
+            />
+            <div class="main-article">
+              <p class="precio">$000</p>
+              <h4 class="description">Product 1</h4>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="product">
+          <article class="product">
+            <img
+              class="photo-product"
+              width="300"
+              src="images/remera.jpg"
+              alt="product1"
+            />
+            <div class="main-article">
+              <p class="precio">$000</p>
+              <h4 class="description">Product 2</h4>
+            </div>
+          </article>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="product">
+          <article class="product">
+            <img
+              class="photo-product"
+              width="300"
+              src="images/pantalon-corto.jpg"
+              alt="product1"
+            />
+            <div class="main-article">
+              <p class="precio">$000</p>
+              <h4 class="description">Product 3</h4>
+            </div>
+          </article>
+        </a>
+      </div>
     </div>
 
-
+  </main>
     <!-- FOOTER -->
     <%-include('../partials/footer') %>
   </body>

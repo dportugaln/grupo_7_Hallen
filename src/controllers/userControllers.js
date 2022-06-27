@@ -4,8 +4,8 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
-const { validationResult } = require("express-validator");
-const validationHelper = require ("../validation/validationHelper")
+// const { validationResult } = require("express-validator");
+// const validationHelper = require ("../validation/validationHelper")
 
 module.exports = {
   profile: (req, res) => {
@@ -21,10 +21,10 @@ module.exports = {
     console.log("aca estoy");
     // res.send(req);
     
-    let errors = validationResult(req);
-    let betterErrors = validationHelper(errors.mapped())
-    betterErrors.create('image', 'No me gusta el archivo que subiste', req.body.image);
-    betterErrors.create('email', 'No me gusta el email que elegiste', req.body.email);
+    // let errors = validationResult(req);
+    // let betterErrors = validationHelper(errors.mapped())
+    // betterErrors.create('image', 'No me gusta el archivo que subiste', req.body.image);
+    // betterErrors.create('email', 'No me gusta el email que elegiste', req.body.email);
     if (errors.isEmpty()) {
       // Es necesario este if? Porque cuando creamos usuarios no les damos la opción
       // de poner imágenes.

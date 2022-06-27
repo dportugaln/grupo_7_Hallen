@@ -58,7 +58,7 @@ header .search .input {
   outline: none;
   color: #666;
   padding: 0.3rem;
-  width: 150%;
+  width: 300px;
   height: 33px;
   border: none;
   text-align: center;
@@ -258,18 +258,23 @@ main div.main-container {
 
 .products {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: row;
+justify-content: center;
+
+}
+
+.card{
+  display: flex;
+  flex-grow: 1; 
+  flex-basis: 16%; 
+  justify-content: center;
 }
 
 main div.card article {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  margin: 10%;
+  /* margin: 10%; */
   padding: 2%;
-  flex-grow: 1;
-  flex-basis: 16%;
-  flex-direction: column;
-  display: flex;
 }
 
 .product {
@@ -300,9 +305,9 @@ main article .tittle {
   color: #666;
 }
 
-.photo-product {
+/* .photo-product {
   width: 100%;
-}
+} */
 
 .precio {
   font-size: 18px;
@@ -328,6 +333,36 @@ main article:hover h4.description {
 main article:hover {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
   transition-duration: 1s, 5s;
+}
+
+.btnProductCreate{
+  width: 10%;
+  margin: 0.5em;
+  height: 40px;
+  width: auto;
+  /* display: inline-block; */
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0.3rem;
+ 
+  border-radius: 15px;
+  text-align: center;
+}
+
+.btnProductCreate:hover{
+  width: 10%;
+  margin: 0.5em;
+  height: 40px;
+  width: auto;
+  background-color: #df1b3f;
+  outline: none;
+  color: #f5f1f5;
+  font-size: 15px;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
 }
 
 /* CHAT */
@@ -409,6 +444,85 @@ input[type="submit"]:hover {
   background-color: #fcb300;
 }
 
+/*ABOUT US*/
+.aboutTittle{
+  margin: 50px 0 40px 50px;
+  font-size: large;
+}
+
+.aboutDescription{
+  margin: 60px 0 60px 80px;
+  font-size: large;
+}
+
+/*CONTACT*/
+.contactTittle{
+    margin: 50px 0 40px 50px;
+  }
+.contactForm{
+  margin: 60px 0 60px 100px;
+}
+.emailcontact label{
+  font-size: large;
+}
+.emailcontact input{
+  width: 30%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  text-align: center;
+  align-content: center;
+  border-radius: 5em;
+  display: flex;
+  justify-content: flex-end;
+}
+.comentario label{
+  font-size: large;
+}
+.comentario input{
+  width: 30%;
+  height: 300px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  text-align: center;
+  align-content: center;
+  border-radius: 5em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitcontact{
+  width: 50px;
+  margin: 20px 0 40px 400px;
+  height: 40px;
+  width: auto;
+  /* display: inline-block; */
+  border: 1px solid #868686;
+  box-sizing: border-box;
+  font-size: 15px;
+  padding: 0.3rem;
+ 
+  border-radius: 15px;
+  text-align: center;
+}
+
+.submitcontact:hover{
+  width: 50px;
+  margin: 20px 0 40px 400px;
+  height: 40px;
+  width: auto;
+  background-color: #df1b3f;
+  outline: none;
+  color: #f5f1f5;
+  font-size: 15px;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+}
 /* PRODUCT DETAIL */
 .product-main {
   display: flex;
@@ -565,7 +679,12 @@ div.container-carrito {
   flex-direction: column;
   padding: 1em;
 }
-
+.cartIcons{
+  margin: 5px;
+  font-size: 25px;
+  background: none;
+  border: none;
+}
 div.container-carrito div.card-compra {
   display: flex;
   flex-direction: row;
