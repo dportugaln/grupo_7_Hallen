@@ -18,14 +18,14 @@ module.exports = (sequelize, DataTypes) => {
   };
   const Color = sequelize.define(alias, cols, conf );
 
-  Color.associate = (models) => {
-    Color.belongsToMany(models.Product, {
-      as: "Product",
-      through: "products_has_color",
-      foreignKey: "Products_idProduct",
-      otherKey: "idProducts",
-      timestamps: false,
-    });
-  };
+  // Color.associate = (models) => {
+  //   Color.belongsToMany(models.Product, {
+  //     as: "Product",
+  //     through: "product_has_color",
+  //     foreignKey: "Color_idColor", //idColor
+  //     otherKey: "idColor", //Color_idColor
+  //     timestamps: false,
+  //   });
+  // };
   return Color;
 };

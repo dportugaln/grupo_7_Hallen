@@ -8,7 +8,7 @@ const {
   Order,
   Rol,
   Size,
-} = require("../../database/models");
+} = require("../../database/associations");
 
 const productsFilePath = path.join(__dirname, "../../data/products.json");
 const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -18,7 +18,9 @@ module.exports = {
     res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
   index: (req, res) => {
-    User.findAll()
+    Order.findAll({
+      include: ["Product"],
+    })
       .then((products) => {
         return res.json({ products });
         // return res.render("products", { products });
