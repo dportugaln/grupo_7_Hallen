@@ -1,4 +1,4 @@
-<%-include('.. /partials/head') %>
+<%-include('../partials/head') %>
 
   <body>
     <!-- HEADER -->
@@ -54,15 +54,15 @@
                 <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" />
               </div>
               <div class="first_name">
-                <label for="first_name">Nombre</label>
-                <input type="text" name="first_name" id="first_name" placeholder="Nombre"
+                <label for="first_name">Nombre y apellido</label>
+                <input type="text" name="first_name" id="first_name" placeholder="Nombre y apellido"
                   value="<%= locals.old && old.first_name ? old.first_name : ''%>">
               </div>
-              <div class="last_name">
+              <!-- <div class="last_name">
                 <label for="last_name">Apellido</label>
                 <input type="text" name="last_name" id="last_name" placeholder="Apellido" required
                   value="<%= locals.old && old.last_name ? old.last_name : ''%>">
-              </div>
+              </div> -->
               <div class="id_num">
                 <label for="id_num">DNI</label>
                 <input type="number" name="id_num" id="id_num" placeholder="Número de DNI" required
