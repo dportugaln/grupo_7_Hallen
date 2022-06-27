@@ -3,28 +3,49 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const userControllers = require("../controllers/userControllers");
-const { check } = require("express-validator");
+const loginValidator = require ("../middlewares/loginValidator")
+const guestValidator = require ("../middlewares/guestValidator")
+const validate = require("../validation/userValidation");
+// const { check } = require("express-validator");
 
-let validateRegister = [
-  check("name")
+// let validateRegister = [
+//   check("first_name")
+//     .notEmpty()
+//     .withMessage("Este campo es obligatorio")
+//     .bail()
+//     .isLength({ min: 5 })
+//     .withMessage("Debes ingresar al menos 5 caracteres"),
+//     check("last_name")
+//     .notEmpty()
+//     .withMessage("Este campo es obligatorio")
+//     .bail()
+//     .isLength({ min: 5 })
+//     .withMessage("Debes ingresar al menos 5 caracteres"),
+//   check("email")
+//     .notEmpty()
+//     .withMessage("Este campo es obligatorio")
+//     .bail()
+//     .isEmail()
+//     .withMessage("Debes ingresar un email valido"),
+//   check("password")
+//     .notEmpty()
+//     .withMessage("Este campo es obligatorio")
+//     .bail()
+//     .isLength({ min: 8 })
+//     .withMessage("Debes ingresar al menos 8 caracteres"),
+/* check("id_num")
     .notEmpty()
     .withMessage("Este campo es obligatorio")
     .bail()
-    .isLength({ min: 5 })
-    .withMessage("Debes ingresar al menos 5 caracteres"),
-  check("mail")
-    .notEmpty()
-    .withMessage("Este campo es obligatorio")
-    .bail()
-    .isEmail()
-    .withMessage("Debes ingresar un email valido"),
-  check("password")
-    .notEmpty()
-    .withMessage("Este campo es obligatorio")
-    .bail()
-    .isLength({ min: 8 })
+    .isLength({ min: 7 })
     .withMessage("Debes ingresar al menos 8 caracteres"),
-];
+  check("birth_date")
+    .notEmpty()
+    .withMessage("Este campo es obligatorio")
+    .bail()
+    .isDate()
+    .withMessage("Debes ingresar una fecha de nacimiento válida"), */
+// ];
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -35,18 +56,33 @@ const storage = multer.diskStorage({
   },
 });
 
-const uploadFile = multer({ storage });
+const uploadFile = multer({
+  storage,
+  limits: { fileSize: 1024 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype !== "image/png") {
+      file.error = "type";
+      req.file = file;
 
-/*get all products*/
-router.get("/profile", userControllers.profile);
+      return cb(null, false, new Error("Está mal el mimeType"));
+    }
+    return cb(null, true);
+  },
+});
 
-/*create one product*/
+/*login*/
+
+router.post("/login", /* guestValidator, */ validate.userLogin, userControllers.validate);
+
+
+/*register*/
 router.get("/create", userControllers.create);
-router.post("/create", userControllers.store);
+router.post("/create", validate.userCreate, userControllers.store);
 
-/*edit one product*/
-router.get("/edit/:id", userControllers.edit);
-router.post("/", uploadFile.single("image"), userControllers.update);
+/*edit user*/
+router.get("/profile", /* guestValidator, */ userControllers.profile);
+router.get("/profile/:id", userControllers.edit);
+router.post("/profile", uploadFile.single("image"), userControllers.update);
 
 // /*get one product*/
 // router.get("/:id", userControllers.detail);

@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const session = require ("express-session");
 const webRoutes = require("./src/routes/webRoutes");
 const productsRoutes = require("./src/routes/productsRoutes");
 const userRoutes = require("./src/routes/userRoutes");
@@ -21,6 +22,15 @@ app.use("/", webRoutes);
 app.use("/products", productsRoutes);
 
 app.use(methodOverride("_method"));
+
+// Sesiones y autenticación
+app.use(session({
+  secret: 'sticker wizzard',
+  resave: false,
+  saveUninitialized: true,
+}));
+// app.use(cookieParser());
+// app.use(auth);
 
 app.use("/user", userRoutes);
 
