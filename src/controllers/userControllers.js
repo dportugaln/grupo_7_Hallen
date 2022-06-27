@@ -100,18 +100,17 @@ module.exports = {
   },
   store: (req, res) => {
     user = {
-      // idUser:
+      idUser: 1,
       nameUser:req.body.first_name,
       email:req.body.email,
-      // password: req.body.password,
+      password: req.body.password,
       dni: req.body.id_num,
       birthdate: req.body.birth_date,
       sex: req.body.sex,
-      // rol_idrol:
-      categoryId: 1
+      rol_idrol: 1,
     };
 
-    db.UserModel(user)
+    db.UserModel
     .create(user)
             .then((storedUser) => {
                 return res.redirect('/');
@@ -120,13 +119,32 @@ module.exports = {
   
 },
   edit: (req, res) => {
-
+    db.UserModel.findByPk(req.params.id)
+    .then(response => {
+      res.render('../views/static/userEdit')
+    });
   },
   update: (req, res) => {
+    user = {
+      idUser: 1,
+      nameUser:req.body.first_name,
+      email:req.body.email,
+      password: req.body.password,
+      dni: req.body.id_num,
+      birthdate: req.body.birth_date,
+      sex: req.body.sex,
+      rol_idrol: 1,
+    };
 
+    db.UserModel
+    .update(user)
+            .then((storedUser) => {
+                return res.redirect('/');
+            })
+            .catch(error => console.log(error));
   },
   destroy: (req, res) => {
-
+    //Eliminamos usuarios? Nunca borré ninguna cuenta jaja.
   },
   validate: (req, res) => { 
 

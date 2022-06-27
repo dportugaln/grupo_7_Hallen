@@ -56,19 +56,19 @@ const storage = multer.diskStorage({
   },
 });
 
-const uploadFile = multer({
-  storage,
-  limits: { fileSize: 1024 * 1024 * 1024 },
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype !== "image/png") {
-      file.error = "type";
-      req.file = file;
+// const uploadFile = multer({
+//   storage,
+//   limits: { fileSize: 1024 * 1024 * 1024 },
+//   fileFilter: (req, file, cb) => {
+//     if (file.mimetype !== "image/png") {
+//       file.error = "type";
+//       req.file = file;
 
-      return cb(null, false, new Error("Está mal el mimeType"));
-    }
-    return cb(null, true);
-  },
-});
+//       return cb(null, false, new Error("Está mal el mimeType"));
+//     }
+//     return cb(null, true);
+//   },
+// });
 
 /*login*/
 
@@ -82,7 +82,7 @@ router.post("/create", userControllers.store);
 /*edit user*/
 router.get("/profile", userControllers.profile);
 router.get("/profile/:id", userControllers.edit);
-router.post("/profile", uploadFile.single("image"), userControllers.update);
+router.post("/profile", userControllers.update);
 
 // /*get one product*/
 // router.get("/:id", userControllers.detail);
