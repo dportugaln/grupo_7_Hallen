@@ -5,7 +5,7 @@ const usersFilePath = path.join(__dirname, "../../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 
-const db = require('../../database/models');
+const {User} = require('../../database/associations');
 
 /* const { validationResult } = require("express-validator");
 const validationHelper = require ("../validation/validationHelper") */
@@ -100,6 +100,8 @@ module.exports = {
     res.render("../views/static/login");
   },
   store: (req, res) => {
+    let body = req.body;
+    console.log(body);
     // user = {
     //   idUser: 1,
     //   nameUser: req.body.first_name,
@@ -118,18 +120,18 @@ module.exports = {
     //   })
     //   .catch(error => console.log(error));
 
-    db.UserModel.create({
-      idUser: 1,
-      nameUser: req.body.first_name,
-      email: req.body.email,
-      password: req.body.password,
-      dni: req.body.id_num,
-      birthdate: req.body.birth_date,
-      sex: req.body.sex,
-      rol_idrol: 1,
-    });
+    // User.create({
+    //   idUser: 1,
+    //   nameUser: req.body.first_name,
+    //   email: req.body.email,
+    //   password: req.body.password,
+    //   dni: req.body.id_num,
+    //   birthdate: req.body.birth_date,
+    //   sex: req.body.sex,
+    //   rol_idrol: 1,
+    // });
 
-    res.redirect("/)");
+
 
   },
   edit: (req, res) => {

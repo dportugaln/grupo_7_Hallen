@@ -15,7 +15,11 @@ const {
 
 module.exports = {
   categories: (req, res) => {
-    res.render(path.join(__dirname, "../views/dinamic/categories"));
+    Product.findAll()
+    .then((product) =>{
+      res.render(path.join(__dirname, "../views/dinamic/categories"), { products });
+    })
+    
   },
   index: (req, res) => {
     Order.findAll({
