@@ -55,13 +55,13 @@ module.exports = {
     })
     // let colors = await Color.findAll();
   },
-  detail: (req, res) => {
-    let id = req.params.id;
-    // let product = products.find((product) => product.id == id);
-    // res.render(path.join(__dirname, "../views/dinamic/product"), {
-    //   product,
-    // });
-  },
+  // detail: (req, res) => {
+  //   let id = req.params.id;
+  //   // let product = products.find((product) => product.id == id);
+  //   // res.render(path.join(__dirname, "../views/dinamic/product"), {
+  //   //   product,
+  //   // });
+  // },
   edit: (req, res) => {
     let id = req.params.id;
     Product.findByPk(id).then( productToEdit => {
@@ -117,14 +117,20 @@ module.exports = {
     // res.redirect("/");
   },
   destroy: (req, res) => {
-    console.log("******req*********", req)
-    console.log("******req.body*********", req.body)
-    const idDeleted = Number(req.body.idDeleted);
-    console.log("idDeleted ->", idDeleted)
+    console.log(req);
+    console.log("******req.body*********", req.body);
+    console.log("******req.body*********", req.query);
+    const _body = req.body;
+    _body.image = req.file ? req.file.filename : '';
+    _body.plop = 'plop';
+    console.log("******req*********", _body);
+    console.log("******req.body*********", req.body);
+    // const idDeleted = Number(req.body.idDeleted);
+    // console.log("idDeleted ->", idDeleted)
     
-    Product.destroy({
-      where: {idProduct: idDeleted},
-    })
+    // Product.destroy({
+    //   where: {idProduct: idDeleted},
+    // })
     return res.redirect(`/products/delete`);
     // let finalProducts = products.filter((product) => product.id != id);
     // fs.writeFileSync(
@@ -134,7 +140,7 @@ module.exports = {
     // res.redirect("/");
   },
   delete: (req, res) => {
-    console.log('Holis'); 
+    console.log('Holis');
     return res.render(path.join(__dirname, "../views/static/productDelete"));
   },
 };
