@@ -39,7 +39,6 @@ module.exports = {
   store: (req, res) => {
     const _body = req.body;
     console.log('_body ->', _body);
-    // console.log('req.file ->', req.file);
         _body.image = req.file ? req.file.filename : '';
         _body.userId = Math.ceil(Math.random() * 3);
         
@@ -48,11 +47,11 @@ module.exports = {
           descriptionProduct: _body.description,
           imageProduct: _body.image,
           Category_idCategory: _body.category,
-          priceProduct: Math.ceil(Math.random() * 1000),
-          stockProduct: Math.ceil(Math.random() * 20)
+          priceProduct: _body.price,
+          stockProduct: _body.stock
         }).then(productCreated => {
           console.log('productCreated', productCreated);
-          return res.redirect(`products/${productCreated.dataValues.idProduct}`);
+          return res.redirect(`/products/create`);
         })
 
         // return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });

@@ -44,7 +44,7 @@
 
           <div class="register">
             <h2>NUEVOS CLIENTES</h2>
-            <form action="user/create" method="POST" enctype="multipart/form-data">
+            <form action="/user/create" method="POST" enctype="multipart/form-data">
               <div class="email">
                 <label for="register_email">Correo electrónico</label>
                 <input type="email" name="register_email" id="register_email" placeholder="Correo electrónico" minlength="5" value="<%= locals.old && old.email ? old.email : ''%>">

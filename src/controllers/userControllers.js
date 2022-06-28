@@ -1,11 +1,19 @@
 const fs = require("fs");
 const path = require("path");
 
-const usersFilePath = path.join(__dirname, "../../data/users.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+// const usersFilePath = path.join(__dirname, "../../data/users.json");
+// const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 
-const {User} = require('../../database/associations');
+const {
+  Product,
+  Category,
+  User,
+  Color,
+  Order,
+  Rol,
+  Size,
+} = require("../../database/associations");
 
 /* const { validationResult } = require("express-validator");
 const validationHelper = require ("../validation/validationHelper") */
@@ -97,11 +105,12 @@ module.exports = {
     res.render("../views/dinamic/profile");
   },
   create: (req, res) => {
-    res.render("../views/static/login");
+    return res.render(path.join(__dirname, "../views/static/login"));
+    // res.render("../views/static/login");
   },
   store: (req, res) => {
-    let body = req.body;
-    console.log(body);
+    const _body = req.body;
+    console.log('_body ->', _body);
     // user = {
     //   idUser: 1,
     //   nameUser: req.body.first_name,
