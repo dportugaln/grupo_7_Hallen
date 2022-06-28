@@ -51,11 +51,6 @@ module.exports = {
           return res.redirect(`products/${productCreated.dataValues.idProduct}`);
         })
 
-        
-        
-        
-
-
         // return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
         
         // Product
