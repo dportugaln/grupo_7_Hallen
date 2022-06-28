@@ -72,11 +72,7 @@ const storage = multer.diskStorage({
 
 /*login*/
 
-<<<<<<< HEAD
 router.post("/login", userControllers.validate);
-=======
-router.post("/login", /* guestValidator, */ userControllers.validate);
->>>>>>> front-design
 
 
 /*register*/

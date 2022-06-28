@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/styles.css" />
 <%-include('../partials/head') %>
   <body>
     <!-- HEADER -->
@@ -6,26 +7,28 @@
     <div>
     <a href="/products/create">  <button class="btnProductCreate" type="submit">Agregar nuevo producto</button></a>
     </div>
-    <% products.forEach(oneProduct => { %>
-      <div class="products">
-        <div class="card">
-          <a href="product">
-            <article class="product">
-              <img
-              class="photo-product"
-              width="300"
-              src="<%= oneProduct.imagProduct %>"
-              alt="product1"
-              />
-              <div class="main-article">
-                <p class="precio"><%= oneProduct.priceProduct %></p>
-                <h4 class="description"><%= oneProduct.descriptionProduct %></h4>
-              </div>
-            </article>
-          </a>
-        </div>
-        
-      <% }) %>
+ <% products.forEach(oneProduct => { %>
+      
+    <div class="products">
+      <div class="card">
+        <a href="product">
+          <article class="product">
+            <img
+            class="photo-product"
+            width="300"
+            src="/../../images/products/<%= oneProduct.imageProduct %>"
+            alt="product1"
+            />
+            <div class="main-article">
+              <p class="precio"><%= oneProduct.priceProduct %></p>
+              <h4 class="description"><%= oneProduct.descriptionProduct %></h4>
+            </div>
+          </article>
+        </a>
+      </div>
+      
+  <% }) %>
+    
       
 
   </main>

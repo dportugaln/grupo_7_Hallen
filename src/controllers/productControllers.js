@@ -15,21 +15,18 @@ const {
 
 module.exports = {
   categories: (req, res) => {
-    Product.findAll()
-    .then((product) =>{
-      res.render(path.join(__dirname, "../views/dinamic/categories"), { products });
+  //  return console.log('hola categories')},
+    Product.findAll().then( products => {
+     return res.render(path.join(__dirname, "../views/dinamic/categories"), { products });
     })
-    
   },
+  
   index: (req, res) => {
-    Order.findAll({
-      include: ["Product"],
-    })
-      .then((products) => {
-        return res.json({ products });
-        // return res.render("products", { products });
-      })
-      .catch((error) => res.send(error));
+    Product.findAll(
+      // {include:{nameProduct, imageProduct}}
+    ).then( products => {
+      return res.render(path.join(__dirname, "../views/dinamic/home"), { products });
+     })
     // res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
 
@@ -66,8 +63,9 @@ module.exports = {
         //     .catch(error => res.send(error));
   },
   create: (req, res) => {
+    // console.log('hola')
     Category.findAll().then( categories => {
-      console.log('categories', categories);
+      // console.log('categories', categories);
       return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
     })
     // let colors = await Color.findAll();

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/styles.css" />
 <%-include('../partials/head') %>
   <body>
     <!-- HEADER -->
@@ -85,58 +86,27 @@
           </script>
         </div>
 
-        <div class="products">
-          <div class="card">
-            <a href="product">
-              <article class="product">
-                <img
+        <% products.forEach(oneProduct => { %>
+      
+          <div class="products">
+            <div class="card">
+              <a href="product">
+                <article class="product">
+                  <img
                   class="photo-product"
                   width="300"
-                  src="images/remera.jpg"
+                  src="/../../images/products/<%= oneProduct.imageProduct %>"
                   alt="product1"
-                />
-                <div class="main-article">
-                  <p class="precio">$000</p>
-                  <h4 class="description">Product 1</h4>
-                </div>
-              </article>
-            </a>
-          </div>
-
-          <div class="card">
-            <a href="product">
-              <article class="product">
-                <img
-                  class="photo-product"
-                  width="300"
-                  src="images/comic-sans-i-love.jpg"
-                  alt="product1"
-                />
-                <div class="main-article">
-                  <p class="precio">$000</p>
-                  <h4 class="description">Product 2</h4>
-                </div>
-              </article>
-            </a>
-          </div>
-
-          <div class="card">
-            <a href="product">
-              <article class="product">
-                <img
-                  class="photo-product"
-                  width="300"
-                  src="images/pantalon-corto.jpg"
-                  alt="product1"
-                />
-                <div class="main-article">
-                  <p class="precio">$000</p>
-                  <h4 class="description">Product 3</h4>
-                </div>
-              </article>
-            </a>
-          </div>
-        </div>
+                  />
+                  <div class="main-article">
+                    <p class="precio"><%= oneProduct.priceProduct %></p>
+                    <h4 class="description"><%= oneProduct.descriptionProduct %></h4>
+                  </div>
+                </article>
+              </a>
+            </div>
+            
+        <% }) %>
 
         <div class="chat">
           <a href="/contact">

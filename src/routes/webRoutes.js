@@ -9,7 +9,6 @@ router.get("/", webControllers.home);
 router.get("/aboutus", webControllers.aboutus);
 router.get("/carrito", webControllers.carrito);
 router.get("/categories", webControllers.categories);
-
 router.get("/contact", webControllers.contact);
 router.get("/login", webControllers.login);
 
