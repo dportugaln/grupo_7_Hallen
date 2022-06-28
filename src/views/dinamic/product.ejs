@@ -6,11 +6,11 @@
     <main class="product-main">
       <section class="primera-info">
         <!-- <div class="img"> -->
-        <img src="<%=product.image%>" alt="imagen" />
+        <img src="<%=product.imageProduct%>" alt="imagen" />
         <!-- </div> -->
         <div class="info">
-          <h4 class="title"><%=product.name%></h4>
-          <h4 class="title"><%=product.price%></h4>
+          <h4 class="title"><%=product.nameProduct%></h4>
+          <h4 class="title"><%=product.priceProduct%></h4>
 
           <div class="stars">
             <span class="fa fa-star checked"></span>
@@ -23,20 +23,18 @@
             <div class="form1">
               <label for="colors">Seleccione un color</label>
               <select name="colors" id="colors">
-                <option value="#ff0000"><%=product.color%></option>
-                <option value="black">Negro</option>
-                <option value="white">Blanco</option>
-                <option value="grey">Gris</option>
+                <% colors.forEach(oneColor => { %>
+                  <option value="<%= oneColor.idColor %>"><%= oneColor.nameColor %> </option>
+                 <% }) %>
+          
               </select>
             </div>
             <div class="form2">
               <label for="sizes">Seleccione un talle</label>
               <select name="sizes" id="sizes">
-                <option value="XL"><%=product.size%></option>
-                <option value="L">L</option>
-                <option value="M">M</option>
-                <option value="S">S</option>
-                <option value="XS">XS</option>
+                <% sizes.forEach(oneSize => { %>
+                  <option value="<%= oneSize.idSize %>"><%= oneSize.nameSize %> </option>
+                 <% }) %>
               </select>
             </div>
           </form>
@@ -51,7 +49,7 @@
       <section class="description-product">
         <h3>Descripcion</h3>
         <p>
-          <%=product.description%>
+          <%=product.descriptionProduct%>
         </p>
       </section>
     </main>
