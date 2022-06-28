@@ -699,6 +699,17 @@ div.container-carrito div.card-compra div.card-description {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  width: fit-content;
+}
+
+div.container-carrito div.card-compra div.card-description p{
+margin: 30px;
+flex-basis: content;
+flex-shrink: 1;
+}
+
+.card-price{
+  margin-left: 30px;
 }
 
 div.container-carrito div.card-compra img {

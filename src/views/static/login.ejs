@@ -1,21 +1,21 @@
-<%-include('.. /partials/head') %>
+<%-include('../partials/head') %>
 
   <body>
     <!-- HEADER -->
     <%- include('../partials/header') %>
-
+    <script src="frontValidation.js"></script>
       <main class="login-register">
         <div class="forms">
           <!-- Log in -->
           <div class="login">
             <h2>CLIENTES REGISTRADOS</h2>
 
-            <form action="/user/profile" method="POST">
+            <form class="loginform"  action="/user/profile" method="POST">
               <div class="email">
                 <label for="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" placeholder="Correo electrónico" minlength="5"
+                <input type="email" name="email" id="oldemail" placeholder="Correo electrónico" minlength="5"
                   class="<%= locals.errors && errors.email ? 'is-danger' : '' %> "
-                  value="<%= locals.errors && errors.value('email') %>">
+                  value="<%= locals.errors && errors.value('email') %>" oninvalid="alert('You must fill out the form!')" />
                 <div>
                   <% if(locals.errors && errors.has('email')) { %>
                     <p class="feedback is-danger">
@@ -26,7 +26,7 @@
               </div>
               <div class="password">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" />
+                <input type="password" name="password" id="oldpassword" placeholder="Contraseña" minlength="8" />
               </div>
               <div class="field">
                 <label for="remember">Recordar mis datos</label>
@@ -44,14 +44,14 @@
 
           <div class="register">
             <h2>NUEVOS CLIENTES</h2>
-            <form action="user/create" method="POST" enctype="multipart/form-data">
+            <form class="registerform" action="user/create" method="POST" enctype="multipart/form-data">
               <div class="email">
                 <label for="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" placeholder="Correo electrónico" minlength="5" value="<%= locals.old && old.email ? old.email : ''%>">
+                <input class='email' type="email" name="email" id="newemail" placeholder="Correo electrónico" minlength="5" value="<%= locals.old && old.email ? old.email : ''%>">
               </div>
               <div class="password">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" />
+                <input type="password" name="password" id="newpassword" placeholder="Contraseña" minlength="8" />
               </div>
               <div class="first_name">
                 <label for="first_name">Nombre</label>

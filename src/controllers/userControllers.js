@@ -69,7 +69,7 @@ module.exports = {
     let userToEdit = users.find((user) => user.id == id);
 
     userToEdit = {
-      id: userToEdit.id,
+      // id: userToEdit.id,
       ...req.body,
       image: userToEdit.image,
     };
