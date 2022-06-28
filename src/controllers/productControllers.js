@@ -10,8 +10,8 @@ const {
   Size,
 } = require("../../database/associations");
 
-const productsFilePath = path.join(__dirname, "../../data/products.json");
-const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+// const productsFilePath = path.join(__dirname, "../../data/products.json");
+// const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 module.exports = {
   categories: (req, res) => {
@@ -33,24 +33,45 @@ module.exports = {
   //   res.render(path.join(__dirname, "../views/static/productCreate"));
   // },
   store: (req, res) => {
-    // const _body = req.body;
-    //     _body.image = req.file ? req.file.filename : '';
-    //     _body.userId = Math.ceil(Math.random() * 3);
-    //     Product
-    //         .create(req.body)
-    //         .then(productStored => {
-    //             // Asociar los colores que querés al producto creado
-    //             productStored.addColors(req.body.colors);
-    //             return res.redirect(`products/${productStored.id}`);
-    //         })
-    //         .catch(error => res.send(error));
+    const _body = req.body;
+    console.log('_body ->', _body);
+    // console.log('req.file ->', req.file);
+        _body.image = req.file ? req.file.filename : '';
+        _body.userId = Math.ceil(Math.random() * 3);
+        
+        Product.create({
+          nameProduct: _body.name,
+          descriptionProduct: _body.description,
+          imageProduct: _body.image,
+          Category_idCategory: _body.category,
+          priceProduct: Math.ceil(Math.random() * 1000),
+          stockProduct: Math.ceil(Math.random() * 20)
+        }).then(productCreated => {
+          console.log('productCreated', productCreated);
+          return res.redirect(`products/${productCreated.dataValues.idProduct}`);
+        })
+
+        
+        
+        
+
+
+        // return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
+        
+        // Product
+        //     .create(req.body)
+        //     .then(productStored => {
+        //         // Asociar los colores que querés al producto creado
+        //         productStored.addColors(req.body.colors);
+        //         return res.redirect(`products/${productStored.id}`);
+        //     })
+        //     .catch(error => res.send(error));
   },
   create: (req, res) => {
-    Category.findAll().then((categories) => {
-      return res.render(path.join(__dirname, "../views/static/productCreate"), {
-        categories,
-      });
-    });
+    Category.findAll().then( categories => {
+      console.log('categories', categories);
+      return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
+    })
     // let colors = await Color.findAll();
   },
   detail: (req, res) => {
