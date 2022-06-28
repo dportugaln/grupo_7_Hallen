@@ -9,6 +9,12 @@ const publicPath = path.resolve(__dirname, "./public");
 const logMiddelware = require("./src/middlewares/userLogs");
 const methodOverride = require("method-override");
 
+var bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+// parse application/json
+app.use(bodyParser.json())
+
 
 
 app.set("view engine", "ejs");

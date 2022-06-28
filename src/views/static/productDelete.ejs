@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/css/styles.css" />
+  <%-include('../partials/head') %>
+
+  <body>
+    <!-- HEADER -->
+    <%-include('../partials/header') %>
+
+    <main class="add-product">
+      <div class="product-form">
+        
+        <!-- DELETE PRODUCT -->
+        <form action="/products/delete/" method="POST" enctype="multipart/form-data">
+          <div class="name">
+            <label for="name">Producto ID</label>
+            <input type="number" name="idDeleted" id="idDeleted" required>
+          </div>
+          <div>
+            <button class="submit" type="submit">Eliminar Producto</button>
+          </div>
+        </form>
+
+      </div>
+    </main>
+  <!-- FOOTER -->
+  <%-include('../partials/footer') %>
+</body>
+</html>

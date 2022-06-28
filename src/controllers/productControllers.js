@@ -27,20 +27,14 @@ module.exports = {
     })
       .then((products) => {
         return res.json({ products });
-        // return res.render("products", { products });
       })
       .catch((error) => res.send(error));
-    // res.render(path.join(__dirname, "../views/dinamic/categories"));
   },
 
-  // create: (req, res) => {
-  //   res.render(path.join(__dirname, "../views/static/productCreate"));
-  // },
   store: (req, res) => {
     const _body = req.body;
-    console.log('_body ->', _body);
+    // console.log('_body ->', _body);
         _body.image = req.file ? req.file.filename : '';
-        _body.userId = Math.ceil(Math.random() * 3);
         
         Product.create({
           nameProduct: _body.name,
@@ -50,70 +44,97 @@ module.exports = {
           priceProduct: _body.price,
           stockProduct: _body.stock
         }).then(productCreated => {
-          console.log('productCreated', productCreated);
+          // console.log('productCreated', productCreated);
           return res.redirect(`/products/create`);
         })
-
-        // return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
-        
-        // Product
-        //     .create(req.body)
-        //     .then(productStored => {
-        //         // Asociar los colores que querés al producto creado
-        //         productStored.addColors(req.body.colors);
-        //         return res.redirect(`products/${productStored.id}`);
-        //     })
-        //     .catch(error => res.send(error));
   },
   create: (req, res) => {
     Category.findAll().then( categories => {
-      console.log('categories', categories);
+      // console.log('categories', categories);
       return res.render(path.join(__dirname, "../views/static/productCreate"), { categories });
     })
     // let colors = await Color.findAll();
   },
   detail: (req, res) => {
     let id = req.params.id;
-    let product = products.find((product) => product.id == id);
-    res.render(path.join(__dirname, "../views/dinamic/product"), {
-      product,
-    });
+    // let product = products.find((product) => product.id == id);
+    // res.render(path.join(__dirname, "../views/dinamic/product"), {
+    //   product,
+    // });
   },
   edit: (req, res) => {
     let id = req.params.id;
-    let productToEdit = products.find((product) => product.id == id);
-    res.render(path.join(__dirname, "../views/static/productEdit"), {
-      productToEdit,
-    });
+    Product.findByPk(id).then( productToEdit => {
+      Category.findAll().then( categories => {
+        return res.render(path.join(__dirname, "../views/static/productEdit"), { categories, productToEdit });
+      })
+      // res.render(path.join(__dirname, "../views/static/productEdit"), {
+      //   productToEdit
+      // });
+    })
+    // let productToEdit = products.find((product) => product.id == id);
+    // res.render(path.join(__dirname, "../views/static/productEdit"), {
+    //   productToEdit,
+    // });
   },
   update: (req, res) => {
-    console.log("¿¿¿¿¿", req.body);
-    let id = req.params.id;
-    let productToEdit = products.find((product) => product.id == id);
+    console.log("req.body", req.body);
+    console.log("ID", req.params.id);
 
-    productToEdit = {
-      id: productToEdit.id,
-      ...req.body,
-      image: productToEdit.image,
-    };
+    const newProduct = req.body;
+    const idProduct = Number(req.params.id);
 
-    let newProducts = products.map((product) => {
-      if (product.id == productToEdit.id) {
-        return (product = { ...productToEdit });
-      }
-      return product;
+    newProduct.image = req.file ? req.file.filename : '';
+
+    Product.update({
+      nameProduct: newProduct.name,
+      descriptionProduct: newProduct.description,
+      imageProduct: newProduct.image,
+      Category_idCategory: newProduct.category,
+      priceProduct: newProduct.price,
+      stockProduct: newProduct.stock
+    },{
+      where: {idProduct: idProduct}
     });
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
-    res.redirect("/");
+    return res.redirect(`/products/create`);
+    // let productToEdit = products.find((product) => product.id == id);
+
+    // productToEdit = {
+    //   id: productToEdit.id,
+    //   ...req.body,
+    //   image: productToEdit.image,
+    // };
+
+    // let newProducts = products.map((product) => {
+    //   if (product.id == productToEdit.id) {
+    //     return (product = { ...productToEdit });
+    //   }
+    //   return product;
+    // });
+
+    // fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, " "));
+    // res.redirect("/");
   },
   destroy: (req, res) => {
-    let id = req.params.id;
-    let finalProducts = products.filter((product) => product.id != id);
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(finalProducts, null, " ")
-    );
-    res.redirect("/");
+    console.log("******req*********", req)
+    console.log("******req.body*********", req.body)
+    const idDeleted = Number(req.body.idDeleted);
+    console.log("idDeleted ->", idDeleted)
+    
+    Product.destroy({
+      where: {idProduct: idDeleted},
+    })
+    return res.redirect(`/products/delete`);
+    // let finalProducts = products.filter((product) => product.id != id);
+    // fs.writeFileSync(
+    //   productsFilePath,
+    //   JSON.stringify(finalProducts, null, " ")
+    // );
+    // res.redirect("/");
+  },
+  delete: (req, res) => {
+    console.log('Holis'); 
+    return res.render(path.join(__dirname, "../views/static/productDelete"));
   },
 };
