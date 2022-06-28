@@ -2,17 +2,33 @@
   <body>
     <!-- HEADER -->
     <%-include('../partials/header') %>
+    <main>
     <div>
-    <a href="/products/create">  <button class="submit" type="submit">Agregar nuevo producto</button></a>
+    <a href="/products/create">  <button class="btnProductCreate" type="submit">Agregar nuevo producto</button></a>
     </div>
-    <div>
-      <button class="submit" type="submit">Enviar</button>
-    </div>
-    <div>
-      <button class="submit" type="submit">Enviar</button>
-    </div>
+    <% products.forEach(oneProduct => { %>
+      <div class="products">
+        <div class="card">
+          <a href="product">
+            <article class="product">
+              <img
+              class="photo-product"
+              width="300"
+              src="<%= oneProduct.imagProduct %>"
+              alt="product1"
+              />
+              <div class="main-article">
+                <p class="precio"><%= oneProduct.priceProduct %></p>
+                <h4 class="description"><%= oneProduct.descriptionProduct %></h4>
+              </div>
+            </article>
+          </a>
+        </div>
+        
+      <% }) %>
+      
 
-
+  </main>
     <!-- FOOTER -->
     <%-include('../partials/footer') %>
   </body>

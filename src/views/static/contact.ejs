@@ -2,6 +2,22 @@
   <body>
     <!-- HEADER -->
     <%-include('../partials/header') %>
+    <main>
+      <h2 class="contactTittle">Contacto</h2>
+      <form class="contactForm" action="#" method="POST" enctype="multipart/form-data">
+        <div class="emailcontact">
+          <label for="emailcontact">Correo electrónico</label>
+          <input type="email" name="emailcontact" id="emailcontact" placeholder="Correo electrónico" minlength="5">
+        </div>
+        <div class="comentario">
+          <label for="Comentario">Dejanos tu mensaje</label>
+          <input type="text" name="comentario" id="comentario" placeholder="Mensaje" minlength="8" />
+        </div>
+        <div>
+          <button class="submitcontact" type="submit">Enviar</button>
+        </div>
+      </form>
+    </main>
     <!-- FOOTER -->
     <%-include('../partials/footer') %>
   </body>
