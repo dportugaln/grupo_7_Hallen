@@ -6,9 +6,7 @@ window.addEventListener('load',function(){
         e.preventDefault()
         if(campoEmail.value === "") {
             error.classList.toggle('active')
-        }
-    
+        }    
     })
-    
 
 })

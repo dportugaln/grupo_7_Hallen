@@ -9,7 +9,10 @@ const publicPath = path.resolve(__dirname, "./public");
 const logMiddelware = require("./src/middlewares/userLogs");
 const methodOverride = require("method-override");
 
-
+/* --------------------- */
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+/* --------------------- */
 
 app.set("view engine", "ejs");
 
@@ -17,9 +20,7 @@ app.use(express.static(publicPath));
 
 app.set("views", path.join(__dirname, "/views"));
 
-app.use("/", webRoutes);
-
-app.use("/products", productsRoutes);
+app.use(logMiddelware);
 
 app.use(methodOverride("_method"));
 
@@ -32,12 +33,13 @@ app.use(session({
 // app.use(cookieParser());
 // app.use(auth);
 
+app.use("/", webRoutes);
 app.use("/user", userRoutes);
+app.use("/products", productsRoutes);
 
-app.use(logMiddelware);
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
 
 app.listen(3000, () => {
   console.log("Servidor corriendo en el puerto 3000");

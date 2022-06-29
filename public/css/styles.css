@@ -69,7 +69,7 @@ header .search .submit {
   outline: none;
   color: #666;
   padding: 0.3rem;
-  width: 30%;
+  width: 50%;
   height: 33px;
   border: none;
   text-align: center;
@@ -423,7 +423,7 @@ footer input[type="text"],
 input[type="submit"],
 input[type="password"],
 button.submit {
-  width: 25%;
+  width: 50%;
   padding: 10px;
   margin: 8px 0;
   /* display: inline-block; */
@@ -728,6 +728,10 @@ div.container-carrito div.card-compra div.card-action {
 }
 
 /* Formulario de productos */
+.buttonFormProduct {
+  border: 1px solid red;
+}
+
 div.product-form {
   display: flex;
   flex-direction: row;

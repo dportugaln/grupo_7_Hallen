@@ -1,42 +1,60 @@
 <link rel="stylesheet" href="/css/styles.css" />
-<%-include('../partials/head') %>
-<body>
-  <!-- HEADER -->
-  <%- include('../partials/header') %>
+  <%-include('../partials/head') %>
+
+  <body>
+    <!-- HEADER -->
+    <%-include('../partials/header') %>
 
     <main class="add-product">
       <div class="product-form">
-        <form action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/products/edit/<%= productToEdit.dataValues.idProduct %> " method="POST" enctype="multipart/form-data">
           <div class="name">
             <label for="name">Producto</label>
-            <input type="text" value="<%=productToEdit.name%>" name="name" id="name" required>
+            <input type="text" name="name" id="name" value='<%= productToEdit.dataValues.nameProduct %>' required>
           </div>
           <div class="description">
             <label for="description">Descripción</label>
-            <input type="text" name="description" id="description" required>
+            <input type="text" name="description" id="description" value='<%= productToEdit.dataValues.descriptionProduct %>' required>
           </div>
           <div class="image">
             <label for="image">Imagen del producto</label>
-            <input type="file" name="image" id="image">
+            <input type="file" name="image" id="image" value="Subir foto">
+          </div>
+          <div class="description">
+            <label for="price">Precio del producto</label>
+            <input type="number" name="price" id="price" value='<%= productToEdit.dataValues.priceProduct %>' required>
+          </div>
+          <div class="description">
+            <label for="stock">Stock del producto</label>
+            <input type="number" name="stock" id="stock" value='<%= productToEdit.dataValues.stockProduct %>' required>
           </div>
           <div class="category">
             <label for="category">Categoría</label>
             <select name="category" required>
-              <option value="empty">Seleccionar</option>
-              <option value="shoes">Calzados</option>
-              <option value="shirts">Remeras</option>
-              <option value="jeans">Jeans</option>
+              <% categories.forEach(oneCategory => { %>
+                <option value="<%= oneCategory.idCategory %>"><%= oneCategory.nameCategory %> </option>
+              <% }) %>
+              <!-- <option value="jeans">Jeans</option> -->
             </select>
           </div>
           <div>
             <button class="submit" type="submit">Enviar</button>
           </div>
         </form>
+
+        <!-- DELETE PRODUCT -->
+        <form action="/products/delete/" method="DELETE" enctype="multipart/form-data">
+          <div class="name">
+            <label for="name">Producto ID</label>
+            <input type="number" name="idDeleted" id="idDeleted" required>
+          </div>
+          <div>
+            <button class="submit" type="submit">Eliminar Producto</button>
+          </div>
+        </form>
       </div>
     </main>
-
-    <!-- FOOTER -->
-    <%- include('../partials/footer') %>
+  <!-- FOOTER -->
+  <%-include('../partials/footer') %>
 </body>
-
 </html>
